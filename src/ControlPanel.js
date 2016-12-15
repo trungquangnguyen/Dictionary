@@ -12,9 +12,6 @@ export default class ControlPanel extends Component {
   render() {
     return (
       <View style={styles.controlPanel}>
-        <Text style={styles.controlPanelWelcome}>
-          Control Panel
-        </Text>
         <Button
           onPress={() => {
             this.props.closeDrawer();

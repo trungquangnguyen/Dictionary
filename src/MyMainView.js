@@ -9,10 +9,10 @@ import {
   Text,
   StyleSheet,
   Platform,
+  Button
 } from 'react-native';
 
 
-import Button from './Button';
 
 export default class MyMainView extends Component {
   setParentState(args){
@@ -23,7 +23,7 @@ export default class MyMainView extends Component {
     return (
           <Button
             onPress={this.props.openDrawer}
-            text="Open Drawer"
+            title="Open Drawer"
             />
     )
   }

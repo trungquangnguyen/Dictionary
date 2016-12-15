@@ -38,6 +38,9 @@ export default class RootView extends Component {
     	this.drawer.open()
   	}
 
+	closeDrawer(){
+    	this.drawer.close()
+  	}
 	setStateFrag(frag) {
 	    this.setState(frag);
 	}
@@ -50,7 +53,7 @@ export default class RootView extends Component {
 	render() {
 		var controlPanel = <MyControlPanel closeDrawer={() => {
       		this.drawer.close();
-    	}}/>
+    	}} />
 		return (
 		<Drawer
         ref={c => this.drawer = c}
@@ -78,7 +81,7 @@ export default class RootView extends Component {
 			 <MyMainView
 		        setParentState={this.setStateFrag.bind(this)}
 		        openDrawer={this.openDrawer.bind(this)}
-          />
+          	/>
        	</Drawer>
 		);
 	}
