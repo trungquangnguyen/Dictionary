@@ -1,88 +1,56 @@
-import React, { Component } from 'react';
+import React, { Component }  from 'react'
 import {
-Text,
-} from 'react-native';
-import Drawer from 'react-native-drawer';
-import MyControlPanel from './ControlPanel';
-import tweens from './tweens';
-import Button from './Button';
-import MyMainView from './MyMainView';
+Platform
+} from 'react-native'
+import {
+Router,
+Scene,
+Reducer
+}from 'react-native-router-flux'
+import NavigationDrawer from './NavigationDrawer'
+import TabView from './TabView'
+import TabIcon from './TabIcon'
+
+const reducerCreate = params => {
+  const defaultReducer = new Reducer(params);
+  return (state, action) => {
+    console.log('ACTION:', action);
+    return defaultReducer(state, action);
+  };
+};
+
+// define this based on the styles/dimensions you use
+const getSceneStyle = (/* NavigationSceneRendererProps */ props, computedProps) => {
+  const style = {
+    flex: 1,
+    backgroundColor: '#fff',
+    shadowColor: null,
+    shadowOffset: null,
+    shadowOpacity: null,
+    shadowRadius: null,
+  };
+  if (computedProps.isActive) {
+  	if (Platform.OS === 'ios') {
+  		style.marginTop = computedProps.hideNavBar ? 0 : 64;
+  	}
+    else {
+    	style.marginTop = computedProps.hideNavBar ? 0 : 54;
+    }
+    style.marginBottom = computedProps.hideTabBar ? 0 : 50;
+  }
+  return style;
+};
 
 export default class RootView extends Component {
-
- 	 constructor(props, context) {
-	    super(props, context);
-	    this.state = {
-	      drawerType: 'overlay',
-	      openDrawerOffset:100,
-	      closedDrawerOffset:0,
-	      panOpenMask: .1,
-	      panCloseMask: .9,
-	      relativeDrag: false,
-	      panThreshold: .25,
-	      tweenHandlerOn: false,
-	      tweenDuration: 350,
-	      tweenEasing: 'linear',
-	      disabled: false,
-	      tweenHandlerPreset: null,
-	      acceptDoubleTap: false,
-	      acceptTap: true,
-	      acceptPan: true,
-	      tapToClose: false,
-	      negotiatePan: false,
-	      rightSide: false,
-	    };
-  	}
-
-  	openDrawer(){
-    	this.drawer.open()
-  	}
-
-	closeDrawer(){
-    	this.drawer.close()
-  	}
-	setStateFrag(frag) {
-	    this.setState(frag);
-	}
-
-  	tweenHandler(ratio){
-	    if(!this.state.tweenHandlerPreset){ return {} }
-	    return tweens[this.state.tweenHandlerPreset](ratio)
-  	}
-
 	render() {
-		var controlPanel = <MyControlPanel closeDrawer={() => {
-      		this.drawer.close();
-    	}} />
 		return (
-		<Drawer
-        ref={c => this.drawer = c}
-        type={this.state.drawerType}
-        animation={this.state.animation}
-        openDrawerOffset={this.state.openDrawerOffset}
-        closedDrawerOffset={this.state.closedDrawerOffset}
-        panOpenMask={this.state.panOpenMask}
-        panCloseMask={this.state.panCloseMask}
-        relativeDrag={this.state.relativeDrag}
-        panThreshold={this.state.panThreshold}
-        content={controlPanel}
-        disabled={this.state.disabled}
-        tweenHandler={this.tweenHandler.bind(this)}
-        tweenDuration={this.state.tweenDuration}
-        tweenEasing={this.state.tweenEasing}
-        acceptDoubleTap={this.state.acceptDoubleTap}
-        acceptTap={this.state.acceptTap}
-        acceptPan={this.state.acceptPan}
-        tapToClose={this.state.tapToClose}
-        negotiatePan={this.state.negotiatePan}
-        changeVal={this.state.changeVal}
-        side={this.state.rightSide ? 'right' : 'left'}
-        > 
-			 <MyMainView
-		        setParentState={this.setStateFrag.bind(this)}
-		        openDrawer={this.openDrawer.bind(this)}
-          	/>
-       	</Drawer>
-		);
+			<Router createReducer={reducerCreate} getSceneStyle={getSceneStyle}>
+	            <Scene key="tabbar" component={NavigationDrawer}>
+	              <Scene key="main" tabs >
+	                <Scene key="tab5" component={TabView} title="Tab #5"  icon={TabIcon} />
+	              </Scene>
+	            </Scene>
+      		</Router>
+		)
 	}
 }
