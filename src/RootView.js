@@ -23,7 +23,7 @@ const reducerCreate = params => {
 const getSceneStyle = (/* NavigationSceneRendererProps */ props, computedProps) => {
   const style = {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#DCDCDC',
     shadowColor: null,
     shadowOffset: null,
     shadowOpacity: null,
@@ -45,9 +45,9 @@ export default class RootView extends Component {
 	render() {
 		return (
 			<Router createReducer={reducerCreate} getSceneStyle={getSceneStyle}>
-	            <Scene key="tabbar" component={NavigationDrawer}>
-	              <Scene key="main" tabs >
-	                <Scene key="tab5" component={TabView} title="Tab #5"  icon={TabIcon} />
+	            <Scene key="root" component={NavigationDrawer}>
+	              <Scene key="tabbar" tabs >
+	                <Scene key="tab5" component={TabView} title="US-EN" icon={TabIcon} />
 	              </Scene>
 	            </Scene>
       		</Router>
