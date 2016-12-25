@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import {
-View,
-StyleSheet,
-Text
+	View,
+	StyleSheet,
+	Text
 } from 'react-native'
+import Header from './Header'
+import ListViewData from './ListView'
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#fff'
@@ -13,24 +15,20 @@ const style = StyleSheet.create({
 
 	header: {
 		height: 120,
-		backgroundColor: '#2273D6',
 		opacity: 0.9,
 		marginRight: 0,
-		marginLeft: 0
+		marginLeft: 0,
+		borderBottomWidth : 0.5,
+		borderColor: 'gray'
 	}
 });
 
 export default class LeftMenu extends Component {
 	render(){
 		return (
-			<View style = {style.container}>
-				<View style = {style.header}>
-					<Text> Header o ddaay</Text>
-				</View>
-
-				<View>
-					<Text> List View O day</Text>
-				</View>
+			<View style = {styles.container}>
+				<Header style = { styles.header }/>
+				<ListViewData style = {{backgroundColor:'red'}} />
 			</View>
 			)
 	}

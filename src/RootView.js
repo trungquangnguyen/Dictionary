@@ -50,7 +50,7 @@ export default class RootView extends Component {
 	                <Scene key="tab5" component={TabView} title="US-EN" icon={TabIcon} />
 	              </Scene>
 	            </Scene>
-      		</Router>
+      </Router>
 		)
 	}
 }
