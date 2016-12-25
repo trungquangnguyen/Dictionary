@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -30,13 +30,23 @@ const styles = StyleSheet.create({
 });
 
 
-const Row = (props) => (
-    <View style={styles.container}>
-      <Image source={props.rowData.image} style = {styles.photo}/>
-      <Text style = { styles.text } >
-        { props.rowData.title }
-      </Text>
-    </View>
-);
+class Row extends Component {
+  handleTouch(){
+
+  }
+
+  render(){
+    return (
+      <TouchableHighlight onPress={this.handleTouch}  underlayColor="#DCDCDC">
+        <View style={styles.container}>
+          <Image source={this.props.rowData.image} style = {styles.photo}/>
+          <Text style = { styles.text } >
+            { this.props.rowData.title }
+          </Text>
+        </View>
+      </TouchableHighlight>
+    );
+  }
+}
 
 export default Row;
