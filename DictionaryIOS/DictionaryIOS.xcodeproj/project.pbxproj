@@ -14,6 +14,11 @@
 		5C5B65231EE01B1C00B97E32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5B65221EE01B1C00B97E32 /* AppDelegate.swift */; };
 		5C5B65261EE01B2F00B97E32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5B65251EE01B2F00B97E32 /* ViewController.swift */; };
 		5C5B65281EE01BF100B97E32 /* OxFord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C5B65271EE01BF100B97E32 /* OxFord.storyboard */; };
+		5CBFB82E1EE6B47200800FA9 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB8291EE6B47200800FA9 /* TFHpple.m */; };
+		5CBFB82F1EE6B47200800FA9 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB82B1EE6B47200800FA9 /* TFHppleElement.m */; };
+		5CBFB8301EE6B47200800FA9 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB82D1EE6B47200800FA9 /* XPathQuery.m */; };
+		5CBFB8331EE6B56700800FA9 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CBFB8321EE6B56700800FA9 /* libxml2.2.tbd */; };
+		5CBFB8351EE6B59D00800FA9 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CBFB8341EE6B59D00800FA9 /* libxml2.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,15 @@
 		5C5B65221EE01B1C00B97E32 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C5B65251EE01B2F00B97E32 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C5B65271EE01BF100B97E32 /* OxFord.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OxFord.storyboard; sourceTree = "<group>"; };
+		5CBFB8241EE6B19A00800FA9 /* DictionaryIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DictionaryIOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		5CBFB8281EE6B47200800FA9 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		5CBFB8291EE6B47200800FA9 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		5CBFB82A1EE6B47200800FA9 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		5CBFB82B1EE6B47200800FA9 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		5CBFB82C1EE6B47200800FA9 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		5CBFB82D1EE6B47200800FA9 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		5CBFB8321EE6B56700800FA9 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		5CBFB8341EE6B59D00800FA9 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CBFB8351EE6B59D00800FA9 /* libxml2.tbd in Frameworks */,
+				5CBFB8331EE6B56700800FA9 /* libxml2.2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +59,7 @@
 			children = (
 				5C5B65081EE019CB00B97E32 /* DictionaryIOS */,
 				5C5B65071EE019CB00B97E32 /* Products */,
+				5CBFB8311EE6B56700800FA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +74,7 @@
 		5C5B65081EE019CB00B97E32 /* DictionaryIOS */ = {
 			isa = PBXGroup;
 			children = (
+				5CBFB8261EE6B47200800FA9 /* ThirdParty */,
 				5C5B65241EE01B2F00B97E32 /* ViewController */,
 				5C5B651B1EE01AAC00B97E32 /* Resource */,
 				5C5B651C1EE01AAC00B97E32 /* StoryBoard */,
@@ -88,6 +106,7 @@
 				5C5B65221EE01B1C00B97E32 /* AppDelegate.swift */,
 				5C5B65201EE01B1100B97E32 /* Info.plist */,
 				5C5B65121EE019CB00B97E32 /* LaunchScreen.storyboard */,
+				5CBFB8241EE6B19A00800FA9 /* DictionaryIOS-Bridging-Header.h */,
 			);
 			path = SupporttingFile;
 			sourceTree = "<group>";
@@ -98,6 +117,36 @@
 				5C5B65251EE01B2F00B97E32 /* ViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5CBFB8261EE6B47200800FA9 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				5CBFB8271EE6B47200800FA9 /* Hpple */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		5CBFB8271EE6B47200800FA9 /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				5CBFB8281EE6B47200800FA9 /* TFHpple.h */,
+				5CBFB8291EE6B47200800FA9 /* TFHpple.m */,
+				5CBFB82A1EE6B47200800FA9 /* TFHppleElement.h */,
+				5CBFB82B1EE6B47200800FA9 /* TFHppleElement.m */,
+				5CBFB82C1EE6B47200800FA9 /* XPathQuery.h */,
+				5CBFB82D1EE6B47200800FA9 /* XPathQuery.m */,
+			);
+			path = Hpple;
+			sourceTree = "<group>";
+		};
+		5CBFB8311EE6B56700800FA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CBFB8341EE6B59D00800FA9 /* libxml2.tbd */,
+				5CBFB8321EE6B56700800FA9 /* libxml2.2.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +182,7 @@
 					5C5B65051EE019CB00B97E32 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = V5BCKD2C56;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -175,7 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CBFB82F1EE6B47200800FA9 /* TFHppleElement.m in Sources */,
 				5C5B65261EE01B2F00B97E32 /* ViewController.swift in Sources */,
+				5CBFB8301EE6B47200800FA9 /* XPathQuery.m in Sources */,
+				5CBFB82E1EE6B47200800FA9 /* TFHpple.m in Sources */,
 				5C5B65231EE01B1C00B97E32 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,11 +356,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = V5BCKD2C56;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "$(SRCROOT)/DictionaryIOS/SupporttingFile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = steam.dictionary.com.DictionaryIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DictionaryIOS/SupporttingFile/DictionaryIOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -316,11 +373,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = V5BCKD2C56;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "$(SRCROOT)/DictionaryIOS/SupporttingFile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = steam.dictionary.com.DictionaryIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DictionaryIOS/SupporttingFile/DictionaryIOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -344,6 +404,7 @@
 				5C5B651A1EE019CC00B97E32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
