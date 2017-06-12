@@ -57,10 +57,13 @@ extension ViewController {
     func loadTutorial(){
         let tutorialURL = URL(string: "http://www.raywenderlich.com/tutorials")
         do {
-           let data = try Data(contentsOf: tutorialURL!)
+            let data = try Data(contentsOf: tutorialURL!)
+            let totorialParse = TFHpple(htmlData: data)
+            
         } catch _ {
             
         }
+        
         
         //let tutorialsHtmlData = NSData(dataW)
     }
