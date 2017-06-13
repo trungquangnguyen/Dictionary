@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        loadTutorial()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,11 +55,24 @@ extension ViewController {
 //    [self.tableView reloadData];
 //    }
     func loadTutorial(){
-        let tutorialURL = URL(string: "http://www.raywenderlich.com/tutorials")
+       //let tutorialURL = URL(string: "http://www.oxfordlearnersdictionaries.com/definition/english/noise?q=noise")
+            let tutorialURL = URL(string: "https://www.raywenderlich.com/tutorials")
         do {
             let data = try Data(contentsOf: tutorialURL!)
             let totorialParse = TFHpple(htmlData: data)
             
+//            3
+            //let tutorialsXpathQueryString = "//div[@id='entryContent']"
+            let tutorialsXpathQueryString = "//div[@class='content-wrapper']/ul/li/a"
+            let tutorialsNodes = totorialParse?.search(withXPathQuery: tutorialsXpathQueryString)
+            
+//            4
+            for element in tutorialsNodes! {
+                print(element)
+                print((element as! TFHppleElement).firstChild.content)
+                print((element as! TFHppleElement).object(forKey: "href"))
+                print("___")
+            }
         } catch _ {
             
         }
