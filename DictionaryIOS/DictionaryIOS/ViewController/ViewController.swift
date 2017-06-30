@@ -67,8 +67,22 @@ extension ViewController {
             // title: //div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//h2[@class='h']
             //tl: //div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//div[@class='webtop-g']//span[@class='pos']
             /*phiên âm: //div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//span[@class='pron-g']//span[@class='phon']
+             for element in tutorialsNodes! {
              print(((element as! TFHppleElement).children[3] as! TFHppleElement).content)
+             }
             */
+            
+            /*Mô tả từ, chỗ chìa khóa://div[@class='entry']/ol[@class='h-g']/span[@class='sn-gs']/li[@class='sn-g']/span[@class='def']
+             Chỗ này lấy theo cụm sau đó mới lấy ra từ từ để tạo model
+             //div[@class='entry']/ol[@class='h-g']/span[@class='sn-gs']/li[@class='sn-g']
+             
+             // get des
+             for element1 in (element as! TFHppleElement).children {
+             if (element1 as! TFHppleElement).object(forKey: "class") != nil && "def" == (element1 as! TFHppleElement).object(forKey: "class") {
+             print((element1 as! TFHppleElement).firstChild.content)
+             }
+             }
+             */
             let tutorialsXpathQueryString = "//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//span[@class='pron-g']//span[@class='phon']"
             //let tutorialsXpathQueryString = "//div[@class='content-wrapper']/ul/li/a"
             let tutorialsNodes = totorialParse?.search(withXPathQuery: tutorialsXpathQueryString)
@@ -76,10 +90,6 @@ extension ViewController {
 //            4
             for element in tutorialsNodes! {
                 print(((element as! TFHppleElement).children[3] as! TFHppleElement).content)
-                print((element as! TFHppleElement).firstChild.content)
-                print((element as! TFHppleElement).object(forKey: "nodeContent"))
-
-                print("___")
             }
         } catch _ {
             
