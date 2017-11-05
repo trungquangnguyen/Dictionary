@@ -9,10 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTutorial()
+        label.text = NSLocalizedString("common_cancel_button", comment: "")
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,7 +89,7 @@ extension ViewController {
             //let tutorialsXpathQueryString = "//div[@class='content-wrapper']/ul/li/a"
             let tutorialsNodes = totorialParse?.search(withXPathQuery: tutorialsXpathQueryString)
             
-//            4
+//4
             for element in tutorialsNodes! {
                 print(((element as! TFHppleElement).children[3] as! TFHppleElement).content)
             }

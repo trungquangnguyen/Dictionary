@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  DictionaryIOS
+
+  Created by trung quang on 10/29/17.
+  Copyright © 2017 SSD. All rights reserved.
+*/
+//COMMON
+"common_cancel_button"="base";
