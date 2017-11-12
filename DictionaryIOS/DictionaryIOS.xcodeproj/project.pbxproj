@@ -23,6 +23,8 @@
 		6F9C41EC1FA5D4E300945EA5 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9C41EB1FA5D4E300945EA5 /* Dynamic.swift */; };
 		6F9C41F91FA5D84A00945EA5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F9C41FB1FA5D84A00945EA5 /* Localizable.strings */; };
 		6FAA85F71FAEBB840097D30F /* OxFordWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA85F61FAEBB840097D30F /* OxFordWord.swift */; };
+		6FE74C6B1FB2065500305FAE /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE74C6A1FB2065500305FAE /* Text.swift */; };
+		6FE74C6D1FB3472900305FAE /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE74C6C1FB3472900305FAE /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		6F9C41EB1FA5D4E300945EA5 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		6F9C42011FA5D9E800945EA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FAA85F61FAEBB840097D30F /* OxFordWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxFordWord.swift; sourceTree = "<group>"; };
+		6FE74C6A1FB2065500305FAE /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		6FE74C6C1FB3472900305FAE /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				5C5B65251EE01B2F00B97E32 /* ViewController.swift */,
+				6FE74C6A1FB2065500305FAE /* Text.swift */,
+				6FE74C6C1FB3472900305FAE /* File.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -349,10 +355,12 @@
 			files = (
 				5CBFB82F1EE6B47200800FA9 /* TFHppleElement.m in Sources */,
 				5C5B65261EE01B2F00B97E32 /* ViewController.swift in Sources */,
+				6FE74C6B1FB2065500305FAE /* Text.swift in Sources */,
 				5CBFB8301EE6B47200800FA9 /* XPathQuery.m in Sources */,
 				6F9C41EC1FA5D4E300945EA5 /* Dynamic.swift in Sources */,
 				6FAA85F71FAEBB840097D30F /* OxFordWord.swift in Sources */,
 				5CBFB82E1EE6B47200800FA9 /* TFHpple.m in Sources */,
+				6FE74C6D1FB3472900305FAE /* File.swift in Sources */,
 				5C5B65231EE01B1C00B97E32 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

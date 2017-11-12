@@ -21,12 +21,24 @@ class OxFordWord: NSObject {
     override init() {
         super.init()
     }
+    
+    func propertyNames() -> [String] {
+        return Mirror(reflecting: self).children.flatMap { $0.label }
+    }
+    
+    func print(){
+        let mirrored_object = Mirror(reflecting: self)
+        for (index, attr) in mirrored_object.children.enumerated() {
+            if let property_name = attr.label as String! {
+                Swift.print("Attr \(index): \(property_name) = \(attr.value)")
+            }
+        }
+    }
 }
 
 class OxFordWordPronuncation: NSObject {
-    var areaKey             : String?
-    var spelling            : String?
-    var pronounce           : String?
+    var spelling            : String = ""
+    var pronounce           : String = ""
     
     override init() {
         super.init()
@@ -51,3 +63,15 @@ class OxFordIdiom: NSObject {
         super.init()
     }
 }
+
+//extension NSObject {
+//    func printAttr(){
+//        let mirrored_object = Mirror(reflecting: self)
+//        for (index, attr) in mirrored_object.children.enumerated() {
+//            if let property_name = attr.label as String! {
+//                Swift.print("Attr \(index): \(property_name) = \(attr.value)")
+//            }
+//        }
+//    }
+//}
+
