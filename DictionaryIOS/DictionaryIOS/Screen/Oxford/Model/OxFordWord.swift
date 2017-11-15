@@ -13,10 +13,10 @@ class OxFordWord: NSObject {
     var pronunciations      : [OxFordWordPronuncation]?
     var wordClasses         : String = ""
     var isLiked             : Bool = false
-    var examples            : [OxFordWordExample]?
-    var idioms              : [OxFordIdiom]?
-    var phrasalVerbs        : [String]?
-    var nearbyWords         : [String]?
+    var des                 : [OxFordWordDes] = [OxFordWordDes]()
+    var idioms              : [String] = [String]()
+    var phrsalVerbs        : [OxFordWordPhrasal] = [OxFordWordPhrasal]()
+    var nearbyWords         : [OxFordWordNearBy]  = [OxFordWordNearBy]()
     
     override init() {
         super.init()
@@ -45,19 +45,37 @@ class OxFordWordPronuncation: NSObject {
     }
 }
 
-class OxFordWordExample: NSObject {
-    var desc                : String?
-    var examples             :[String]?
+class OxFordWordDes: NSObject {
+    var shortCut            : String = ""
+    var longDes             :[OxFordWordExample] = [OxFordWordExample]()
     
     override init() {
         super.init()
     }
 }
 
-class OxFordIdiom: NSObject {
-    var title                       : String?
-    var desc                        : String?
-    var idioms                      : [String]?
+class OxFordWordExample: NSObject {
+    var desc                 : String = ""
+    var examples             :[String] = [String]()
+    
+    override init() {
+        super.init()
+    }
+}
+
+class OxFordWordPhrasal: NSObject {
+    var phrasal                 : String = ""
+    var url                     : String = ""
+    
+    override init() {
+        super.init()
+    }
+}
+
+class OxFordWordNearBy: NSObject {
+    var word                 : String = ""
+    var wordClasses         : String = ""
+    var url                  : String = ""
     
     override init() {
         super.init()

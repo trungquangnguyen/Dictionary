@@ -1,35 +1,48 @@
 //
+//{
+//    nodeAttributeArray =     (
+//        {
+//            attributeName = class;
+//            nodeContent = def;
+//    },
+//        {
+//            attributeName = dpsid;
+//            nodeContent = "u4cdebea65f7df6b4.743b4102.13cbabeaa27.-b66";
+//    },
+//        {
+//            attributeName = id;
+//            nodeContent = "hello_1__35";
+//    }
+//    );
+//    nodeChildArray =     (
+//        {
+//            nodeContent = "used as a ";
+//            nodeName = text;
+//    },
+//        {
 //            nodeAttributeArray =             (
 //                {
 //                    attributeName = class;
-//                    nodeContent = "sound audio_play_button pron-uk icon-audio";
+//                    nodeContent = ndv;
 //            },
 //                {
-//                    attributeName = "data-src-mp3";
-//                    nodeContent = "https://www.oxfordlearnersdictionaries.com/media/english/uk_pron/w/wor/work_/work__gb_2.mp3";
-//            },
-//                {
-//                    attributeName = "data-src-ogg";
-//                    nodeContent = "https://www.oxfordlearnersdictionaries.com/media/english/uk_pron_ogg/w/wor/work_/work__gb_2.ogg";
-//            },
-//                {
-//                    attributeName = title;
-//                    nodeContent = "pronunciation English";
-//            },
-//                {
-//                    attributeName = style;
-//                    nodeContent = "cursor: pointer";
-//            },
-//                {
-//                    attributeName = valign;
-//                    nodeContent = top;
+//                    attributeName = id;
+//                    nodeContent = "hello_1__36";
 //            }
 //            );
 //            nodeChildArray =             (
 //                {
-//                    nodeContent = "\U00a0";
+//                    nodeContent = greeting;
 //                    nodeName = text;
 //                }
 //            );
-//            nodeName = div;
+//            nodeName = span;
+//    },
+////        {
+//            nodeContent = " when you meet somebody, when you answer the telephone or when you want to attract somebody\U2019s attention";
+//            nodeName = text;
 //    }
+//    );
+//    nodeName = span;
+//}
+
