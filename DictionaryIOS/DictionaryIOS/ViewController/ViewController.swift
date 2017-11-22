@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let key = "work"
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadWord(key: key)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0A19461FC58B8E00FF1B2F /* HTMLMapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A19441FC58B8E00FF1B2F /* HTMLMapable.swift */; };
+		5C0A19471FC58B8E00FF1B2F /* HTMLMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A19451FC58B8E00FF1B2F /* HTMLMapper.swift */; };
 		5C5B650F1EE019CB00B97E32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C5B650D1EE019CB00B97E32 /* Main.storyboard */; };
 		5C5B65141EE019CB00B97E32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C5B65121EE019CB00B97E32 /* LaunchScreen.storyboard */; };
 		5C5B651F1EE01AFF00B97E32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5B651E1EE01AFF00B97E32 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C0A19441FC58B8E00FF1B2F /* HTMLMapable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLMapable.swift; sourceTree = "<group>"; };
+		5C0A19451FC58B8E00FF1B2F /* HTMLMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLMapper.swift; sourceTree = "<group>"; };
 		5C5B65061EE019CB00B97E32 /* DictionaryIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DictionaryIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5B650E1EE019CB00B97E32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C5B65131EE019CB00B97E32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				6FA97F091FC31C0A00D6994B /* Operators.swift */,
+				5C0A19441FC58B8E00FF1B2F /* HTMLMapable.swift */,
+				5C0A19451FC58B8E00FF1B2F /* HTMLMapper.swift */,
 				6FA97F0D1FC31EE600D6994B /* FromHTML.swift */,
 				6FA97F0B1FC31CCB00D6994B /* JinMap.swift */,
 			);
@@ -371,6 +377,8 @@
 				6FE74C6B1FB2065500305FAE /* Text.swift in Sources */,
 				5CBFB8301EE6B47200800FA9 /* XPathQuery.m in Sources */,
 				6F9C41EC1FA5D4E300945EA5 /* Dynamic.swift in Sources */,
+				5C0A19461FC58B8E00FF1B2F /* HTMLMapable.swift in Sources */,
+				5C0A19471FC58B8E00FF1B2F /* HTMLMapper.swift in Sources */,
 				6FAA85F71FAEBB840097D30F /* OxFordWord.swift in Sources */,
 				5CBFB82E1EE6B47200800FA9 /* TFHpple.m in Sources */,
 				6FE74C6D1FB3472900305FAE /* File.swift in Sources */,

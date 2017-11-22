@@ -8,6 +8,6 @@
 
 infix operator <-
 
-public func <- <T>(left: inout T, right: JinMap) {
+func <- <T>(left: inout T, right: HTMLMap) {
         FromHTML.basicType(&left, object: right.value())
 }
