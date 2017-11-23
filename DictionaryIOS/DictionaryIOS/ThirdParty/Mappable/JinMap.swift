@@ -15,16 +15,16 @@
         self.html = html
     }
     
-    public init(element: TFHppleElement){
+    init(element: TFHppleElement){
         self.tfElement = element
-    }
-    
-     func value<T>() -> T? {
-        return currentValue as? T
     }
     
      subscript(key: String) -> HTMLMap {
         return map(key: key)
+    }
+    
+    func value<T>() -> T? {
+        return currentValue as? T
     }
     
     private func map(key: String) -> HTMLMap {

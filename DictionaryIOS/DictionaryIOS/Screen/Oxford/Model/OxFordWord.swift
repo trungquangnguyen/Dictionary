@@ -7,6 +7,19 @@
 //
 
 import UIKit
+class Demo: HTMLMappable {
+    var string = ""
+    
+    required convenience init?(map: HTMLMap) {
+       self.init()
+    }
+    
+    func mapping(map: HTMLMap) {
+        string                  <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//div[@class='webtop-g']//span[@class='pos']"]
+    }
+    
+    
+}
 
 class OxFordWord: NSObject {
     var keyWord             : String = ""

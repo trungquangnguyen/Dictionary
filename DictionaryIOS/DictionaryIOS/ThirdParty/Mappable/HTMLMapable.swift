@@ -13,7 +13,7 @@ protocol HTMLBaseMappable {
     mutating func mapping(map: HTMLMap)
 }
 
-protocol Mappable: HTMLBaseMappable {
+protocol HTMLMappable: HTMLBaseMappable {
     /// This function can be used to validate JSON prior to mapping. Return nil to cancel mapping at this point
     init?(map: HTMLMap)
 }

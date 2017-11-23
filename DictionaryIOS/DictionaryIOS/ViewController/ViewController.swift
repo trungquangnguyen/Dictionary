@@ -29,13 +29,15 @@ extension ViewController {
         do {
             let data = try Data(contentsOf: tutorialURL!)
             let tFHppleObject = TFHpple(htmlData: data)
-            word.pronunciations = getPronunciation(data: tFHppleObject)
-            word.wordClasses = getWordClasses(data: tFHppleObject)
-            word.des = getWordExample(data: tFHppleObject)
-            word.idioms = getContents(data: tFHppleObject, key: "//div[@class='entry']/ol[@class='h-g']/span[@class='idm-gs']//span[@class='x']")
-            word.phrsalVerbs = getPhrasal(data: tFHppleObject)
-            word.nearbyWords = nearbyWords(data: tFHppleObject)
-            //word.print()
+            let object = HTMLMapper<Demo>().map(tFHpple: tFHppleObject)
+            print(object?.string ?? "______")
+//            word.pronunciations = getPronunciation(data: tFHppleObject)
+//            word.wordClasses = getWordClasses(data: tFHppleObject)
+//            word.des = getWordExample(data: tFHppleObject)
+//            word.idioms = getContents(data: tFHppleObject, key: "//div[@class='entry']/ol[@class='h-g']/span[@class='idm-gs']//span[@class='x']")
+//            word.phrsalVerbs = getPhrasal(data: tFHppleObject)
+//            word.nearbyWords = nearbyWords(data: tFHppleObject)
+//            //word.print()
         } catch {
             print("loadWord Error")
         }
