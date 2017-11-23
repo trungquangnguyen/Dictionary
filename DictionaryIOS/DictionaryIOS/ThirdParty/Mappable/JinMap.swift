@@ -6,6 +6,18 @@
 //  Copyright © 2017 SSD. All rights reserved.
 //
 
+enum MapFrom {
+    case TFHpple
+    case TFHppleElement
+}
+
+enum MapType {
+    case Array
+    case Object
+    case Content
+    case Href
+}
+
  final class HTMLMap {
     internal(set) var currentValue: Any?
     internal(set) var html: TFHpple?
@@ -19,26 +31,39 @@
         self.tfElement = element
     }
     
-     subscript(key: String) -> HTMLMap {
-        return map(key: key)
+    subscript(key: String, mapFrom: MapFrom) -> HTMLMap {
+        return map(key: key, mapFrom: mapFrom)
     }
     
     func value<T>() -> T? {
         return currentValue as? T
     }
     
-    private func map(key: String) -> HTMLMap {
-        if html != nil {
-            let nodes = html?.search(withXPathQuery: key)
-            let chils = (nodes?.first as? TFHppleElement)?.children
-            currentValue = (chils?.first as? TFHppleElement)?.content ?? ""
+    private func map(key: String, mapFrom: MapFrom, mapType: MapType = .Content) -> HTMLMap {
+        if html != nil && mapFrom == .TFHpple{
+            let nodes = html!.search(withXPathQuery: key)
+            setCurrentValue(nodes: nodes, mapType:  mapType)
         } else {
-            if tfElement != nil {
-                let chil = tfElement?.search(withXPathQuery: key).first as? TFHppleElement
-                currentValue = chil?.content ?? ""
+            if tfElement != nil && mapFrom == .TFHppleElement{
+                setCurrentValue(nodes: tfElement!.search(withXPathQuery: key), mapType: mapType)
             }
         }
         return self
+    }
+    
+    private func setCurrentValue(nodes: [Any]?,  mapType: MapType){
+        switch mapType {
+        case .Content:
+            currentValue = (nodes?.first as? TFHppleElement)?.content ?? ""
+            break
+        case .Href:
+            break
+        case .Object:
+            break
+        case .Array:
+            currentValue = nodes
+            break
+        }
     }
     
 }

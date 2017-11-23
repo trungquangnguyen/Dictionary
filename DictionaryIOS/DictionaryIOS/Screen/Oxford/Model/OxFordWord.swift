@@ -15,7 +15,7 @@ class Demo: HTMLMappable {
     }
     
     func mapping(map: HTMLMap) {
-        string                  <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//div[@class='webtop-g']//span[@class='pos']"]
+        string                  <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//div[@class='webtop-g']//span[@class='pos']", .TFHpple]
     }
     
     
