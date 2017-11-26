@@ -12,4 +12,12 @@ internal final class FromHTML {
             field = value
         }
     }
+    
+    /// Mappable object
+    class func object<N: HTMLBaseMappable>(_ field: inout N, map: HTMLMap) {
+        let f = HTMLMapper<N>().map(element: map.currentValue as? TFHppleElement)
+        if let f = f {
+            field = f
+        }
+    }
 }

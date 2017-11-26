@@ -9,6 +9,8 @@
 import Foundation
 
 final class HTMLMapper<N: HTMLBaseMappable> {
+    var tFHpple: TFHpple?
+    var tfHppleElement: TFHppleElement?
     
     func map(tFHpple: TFHpple?) -> N? {
         if let tFHpple = tFHpple {
@@ -40,10 +42,9 @@ final class HTMLMapper<N: HTMLBaseMappable> {
         return nil
     }
     
-    /// Maps an array of JSON dictionary to an array of Mappable objects
-    public func mapArray(elements: [TFHppleElement]) -> [N] {
-        // map every element in JSON array to type N
+    public func mapArrayObject(elements: [TFHppleElement]) -> [N] {
         let result = elements.flatMap(map)
         return result
     }
 }
+

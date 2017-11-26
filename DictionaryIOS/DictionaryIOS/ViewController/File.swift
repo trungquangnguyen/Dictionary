@@ -1,48 +1,79 @@
-//
 //{
 //    nodeAttributeArray =     (
 //        {
-//            attributeName = class;
-//            nodeContent = def;
-//    },
-//        {
-//            attributeName = dpsid;
-//            nodeContent = "u4cdebea65f7df6b4.743b4102.13cbabeaa27.-b66";
-//    },
-//        {
 //            attributeName = id;
-//            nodeContent = "hello_1__35";
-//    }
+//            nodeContent = "ox-enlarge";
+//        }
 //    );
 //    nodeChildArray =     (
-//        {
-//            nodeContent = "used as a ";
-//            nodeName = text;
-//    },
 //        {
 //            nodeAttributeArray =             (
 //                {
 //                    attributeName = class;
-//                    nodeContent = ndv;
+//                    nodeContent = topic;
 //            },
 //                {
-//                    attributeName = id;
-//                    nodeContent = "hello_1__36";
+//                    attributeName = title;
+//                    nodeContent = "";
+//            },
+//                {
+//                    attributeName = href;
+//                    nodeContent = "https://www.oxfordlearnersdictionaries.com/media/english/fullsize/h/hai/hair_/hair.jpg";
 //            }
 //            );
 //            nodeChildArray =             (
 //                {
-//                    nodeContent = greeting;
-//                    nodeName = text;
-//                }
+//                    nodeAttributeArray =                     (
+//                        {
+//                            attributeName = class;
+//                            nodeContent = thumb;
+//                    },
+//                        {
+//                            attributeName = border;
+//                            nodeContent = 1;
+//                    },
+//                        {
+//                            attributeName = alt;
+//                            nodeContent = "";
+//                    },
+//                        {
+//                            attributeName = title;
+//                            nodeContent = "";
+//                    },
+//                        {
+//                            attributeName = src;
+//                            nodeContent = "https://www.oxfordlearnersdictionaries.com/media/english/thumb/h/hai/hair_/hair.jpg";
+//                    }
+//                    );
+//                    nodeContent = "";
+//                    nodeName = img;
+//                    raw = "<img class=\"thumb\" border=\"1\" alt=\"\" title=\"\" src=\"https://www.oxfordlearnersdictionaries.com/media/english/thumb/h/hai/hair_/hair.jpg\" />";
+//            },
+//                {
+//                    nodeAttributeArray =                     (
+//                        {
+//                            attributeName = class;
+//                            nodeContent = "ox-enlarge-label";
+//                        }
+//                    );
+//                    nodeChildArray =                     (
+//                        {
+//                            nodeContent = "enlarge image";
+//                            nodeName = text;
+//                        }
+//                    );
+//                    nodeContent = "enlarge image";
+//                    nodeName = span;
+//                    raw = "<span class=\"ox-enlarge-label\">enlarge image</span>";
+//            }
 //            );
-//            nodeName = span;
-//    },
-////        {
-//            nodeContent = " when you meet somebody, when you answer the telephone or when you want to attract somebody\U2019s attention";
-//            nodeName = text;
-//    }
+//            nodeContent = "enlarge image";
+//            nodeName = a;
+//            raw = "<a class=\"topic\" title=\"\" href=\"https://www.oxfordlearnersdictionaries.com/media/english/fullsize/h/hai/hair_/hair.jpg\"><img class=\"thumb\" border=\"1\" alt=\"\" title=\"\" src=\"https://www.oxfordlearnersdictionaries.com/media/english/thumb/h/hai/hair_/hair.jpg\" /><span class=\"ox-enlarge-label\">enlarge image</span></a>";
+//        }
 //    );
-//    nodeName = span;
+//    nodeContent = "enlarge image";
+//    nodeName = div;
+//    raw = "<div id=\"ox-enlarge\"><a class=\"topic\" title=\"\" href=\"https://www.oxfordlearnersdictionaries.com/media/english/fullsize/h/hai/hair_/hair.jpg\"><img class=\"thumb\" border=\"1\" alt=\"\" title=\"\" src=\"https://www.oxfordlearnersdictionaries.com/media/english/thumb/h/hai/hair_/hair.jpg\" /><span class=\"ox-enlarge-label\">enlarge image</span></a></div>";
 //}
 

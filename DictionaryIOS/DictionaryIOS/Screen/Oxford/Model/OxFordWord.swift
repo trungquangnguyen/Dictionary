@@ -8,17 +8,24 @@
 
 import UIKit
 class Demo: HTMLMappable {
-    var string = ""
+    var wordClasses         : String = ""
+    var thumUrl             : String = ""
+    var fullSizeUrl         : String = ""
+    var isLiked             : Bool = false
+    var idioms              : [String] = [String]()
+    var demo                : OxFordWordPronuncation = OxFordWordPronuncation()
     
     required convenience init?(map: HTMLMap) {
        self.init()
     }
     
     func mapping(map: HTMLMap) {
-        string                  <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//div[@class='webtop-g']//span[@class='pos']", .TFHpple]
+        wordClasses                  <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//div[@class='webtop-g']//span[@class='pos']", .TFHpple]
+        idioms                       <- map["//div[@class='entry']/ol[@class='h-g']/span[@class='idm-gs']//span[@class='x']", .TFHpple, .BaseArray]
+        thumUrl                      <- map["//div[@class='entry']/ol[@class='h-g']/span[@class='sn-gs']/li[@class='sn-g']/div[@id='ox-enlarge']/a[@class='topic']/img[@class='thumb']", .TFHpple, .Attribute, "src"]
+        fullSizeUrl                  <- map["//div[@class='entry']/ol[@class='h-g']/span[@class='sn-gs']/li[@class='sn-g']/div[@id='ox-enlarge']/a[@class='topic']", .TFHpple, .Attribute, "href"]
+        demo                         <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']/div[@class='top-g']/div[@class='pron-gs ei-g']//span[@class='pron-g']", .TFHpple, .Object]
     }
-    
-    
 }
 
 class OxFordWord: NSObject {
@@ -49,12 +56,17 @@ class OxFordWord: NSObject {
     }
 }
 
-class OxFordWordPronuncation: NSObject {
+class OxFordWordPronuncation: HTMLMappable {
     var spelling            : String = ""
     var pronounce           : String = ""
     
-    override init() {
-        super.init()
+    required convenience init?(map: HTMLMap) {
+        self.init()
+    }
+    
+    func mapping(map: HTMLMap) {
+        spelling                  <- map["//span[@class='phon']", .TFHppleElement, 3, true]
+        pronounce                 <- map["", .TFHppleElement, .Attribute, "data-src-mp3", 3, true]
     }
 }
 
