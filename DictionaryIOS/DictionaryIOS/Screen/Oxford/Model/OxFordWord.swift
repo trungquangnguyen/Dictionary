@@ -14,6 +14,7 @@ class Demo: HTMLMappable {
     var isLiked             : Bool = false
     var idioms              : [String] = [String]()
     var demo                : OxFordWordPronuncation = OxFordWordPronuncation()
+    var demoArrayObject     : [OxFordWordPronuncation] = [OxFordWordPronuncation]()
     
     required convenience init?(map: HTMLMap) {
        self.init()
@@ -25,6 +26,7 @@ class Demo: HTMLMappable {
         thumUrl                      <- map["//div[@class='entry']/ol[@class='h-g']/span[@class='sn-gs']/li[@class='sn-g']/div[@id='ox-enlarge']/a[@class='topic']/img[@class='thumb']", .TFHpple, .Attribute, "src"]
         fullSizeUrl                  <- map["//div[@class='entry']/ol[@class='h-g']/span[@class='sn-gs']/li[@class='sn-g']/div[@id='ox-enlarge']/a[@class='topic']", .TFHpple, .Attribute, "href"]
         demo                         <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']/div[@class='top-g']/div[@class='pron-gs ei-g']//span[@class='pron-g']", .TFHpple, .Object]
+        demoArrayObject                         <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']/div[@class='top-g']/div[@class='pron-gs ei-g']//span[@class='pron-g']", .TFHpple, .ArrayObject]
     }
 }
 

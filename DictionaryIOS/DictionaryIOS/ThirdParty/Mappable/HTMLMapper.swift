@@ -42,8 +42,15 @@ final class HTMLMapper<N: HTMLBaseMappable> {
         return nil
     }
     
-    public func mapArrayObject(elements: [TFHppleElement]) -> [N] {
-        let result = elements.flatMap(map)
+    public func mapArrayObject(elements: [TFHppleElement]?) -> [N] {
+        var result = [N]()
+        if let elements = elements {
+            for element in elements {
+                if let f = map(element: element){
+                    result.append(f)
+                }
+            }
+        }
         return result
     }
 }

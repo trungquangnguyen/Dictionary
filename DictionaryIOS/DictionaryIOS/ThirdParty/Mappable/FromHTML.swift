@@ -20,4 +20,9 @@ internal final class FromHTML {
             field = f
         }
     }
+    
+    /// mappable object array
+    class func objectArray<N: HTMLBaseMappable>(_ field: inout Array<N>, map: HTMLMap) {
+        field = HTMLMapper<N>().mapArrayObject(elements: map.currentValue as? [TFHppleElement])
+    }
 }

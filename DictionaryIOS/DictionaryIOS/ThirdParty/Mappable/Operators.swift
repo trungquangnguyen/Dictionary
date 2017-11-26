@@ -19,14 +19,9 @@ func <- <T>(left: inout Array<T>, right: HTMLMap) {
 func <- <T: HTMLBaseMappable>(left: inout T, right: HTMLMap) {
     FromHTML.object(&left, map: right)
 }
-///// Array of Mappable objects
-//public func <- <T: BaseMappable>(left: inout Array<T>, right: Map) {
-//    switch right.mappingType {
-//    case .fromJSON where right.isKeyPresent:
-//        FromJSON.objectArray(&left, map: right)
-//    case .toJSON:
-//        left >>> right
-//    default: ()
-//    }
-//}
+
+// Array of Mappable objects
+func <- <T: HTMLBaseMappable>(left: inout Array<T>, right: HTMLMap) {
+    FromHTML.objectArray(&left, map: right)
+}
 
