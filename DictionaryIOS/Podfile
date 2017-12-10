@@ -8,5 +8,6 @@ target 'DictionaryIOS' do
   # Pods for DictionaryIOS
 pod 'RxSwift',    '~> 4.0'
 pod 'RxCocoa',    '~> 4.0'
+pod 'EZSwiftExtensions', '~> 1.11'
 pod 'RxRealm',:git => 'https://github.com/RxSwiftCommunity/RxRealm',:tag => '0.7.4’
 end

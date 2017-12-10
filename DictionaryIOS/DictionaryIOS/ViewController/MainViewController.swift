@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     let key = "car"
     
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension MainViewController {
     fileprivate func loadWord(key: String){
         let word = OxFordWord()
         word.keyWord = key
@@ -28,7 +28,7 @@ extension ViewController {
         do {
             let data = try Data(contentsOf: tutorialURL!)
             let tFHppleObject = TFHpple(htmlData: data)
-            let object = HTMLMapper<OxFordWord>().map(tFHpple: tFHppleObject)
+            _ = HTMLMapper<OxFordWord>().map(tFHpple: tFHppleObject)
 //            word.pronunciations = getPronunciation(data: tFHppleObject)
 //            word.wordClasses = getWordClasses(data: tFHppleObject)
 //            word.des = getWordExample(data: tFHppleObject)
