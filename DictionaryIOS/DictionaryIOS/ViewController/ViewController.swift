@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
-    let key = "work"
+    let key = "car"
     
     
     
@@ -28,8 +28,7 @@ extension ViewController {
         do {
             let data = try Data(contentsOf: tutorialURL!)
             let tFHppleObject = TFHpple(htmlData: data)
-            let object = HTMLMapper<Demo>().map(tFHpple: tFHppleObject)
-            print(object?.demo.spelling ?? "")
+            let object = HTMLMapper<OxFordWord>().map(tFHpple: tFHppleObject)
 //            word.pronunciations = getPronunciation(data: tFHppleObject)
 //            word.wordClasses = getWordClasses(data: tFHppleObject)
 //            word.des = getWordExample(data: tFHppleObject)

@@ -93,7 +93,8 @@ final class HTMLMap {
             break
         case .Attribute:
             if index == 0 {
-                currentValue = (nodes?.first as? TFHppleElement)?.content ?? ""
+                let chil = nodes?.first as? TFHppleElement
+                currentValue = chil?.object(forKey: keyValue) ?? ""
             } else {
                 var listChil = nodes
                 if chil {
