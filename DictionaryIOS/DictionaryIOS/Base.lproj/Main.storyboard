@@ -21,17 +21,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gjf-SM-wz2">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uid-yP-2F1">
+                                <rect key="frame" x="0.0" y="117" width="375" height="550"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfS-Zb-Dez">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZAO-gf-xaR" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <inset key="scrollIndicatorInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wLi-DA-TTg">
+                                            <size key="itemSize" width="40" height="40"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstItem="ZAO-gf-xaR" firstAttribute="top" secondItem="vfS-Zb-Dez" secondAttribute="top" id="BKT-bG-CnP"/>
+                                    <constraint firstAttribute="height" constant="50" id="FVK-81-XX7"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZAO-gf-xaR" secondAttribute="bottom" id="Nlf-nT-Au7"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZAO-gf-xaR" secondAttribute="trailing" id="g0i-Xg-Q1X"/>
+                                    <constraint firstItem="ZAO-gf-xaR" firstAttribute="leading" secondItem="vfS-Zb-Dez" secondAttribute="leading" id="iub-Wn-TcV"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="qN9-O1-TAN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="gjf-SM-wz2" secondAttribute="bottom" id="88D-Q9-iQo"/>
-                            <constraint firstItem="gjf-SM-wz2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WH3-5y-iTy"/>
-                            <constraint firstItem="gjf-SM-wz2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="eCl-TK-Tlm"/>
-                            <constraint firstAttribute="trailing" secondItem="gjf-SM-wz2" secondAttribute="trailing" id="yxd-Et-l5f"/>
+                            <constraint firstItem="vfS-Zb-Dez" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8TX-fy-DYN"/>
+                            <constraint firstItem="uid-yP-2F1" firstAttribute="top" secondItem="vfS-Zb-Dez" secondAttribute="bottom" constant="3" id="8ZW-Vo-B9f"/>
+                            <constraint firstAttribute="trailing" secondItem="vfS-Zb-Dez" secondAttribute="trailing" id="aXv-8V-kYP"/>
+                            <constraint firstItem="uid-yP-2F1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="idb-f1-yLX"/>
+                            <constraint firstAttribute="trailing" secondItem="uid-yP-2F1" secondAttribute="trailing" id="j7W-kf-cqC"/>
+                            <constraint firstAttribute="bottom" secondItem="uid-yP-2F1" secondAttribute="bottom" id="tGx-75-D1N"/>
+                            <constraint firstItem="vfS-Zb-Dez" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="v5x-P0-zEZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vAz-C5-Lm4">
@@ -50,6 +78,11 @@
                             <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                         </textField>
                     </navigationItem>
+                    <connections>
+                        <outlet property="buttonBarView" destination="ZAO-gf-xaR" id="hnR-5K-kSk"/>
+                        <outlet property="containerView" destination="uid-yP-2F1" id="haq-7q-9Sa"/>
+                        <outlet property="shadowView" destination="vfS-Zb-Dez" id="NSe-PV-UVc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

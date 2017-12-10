@@ -11,5 +11,7 @@ struct StoryBoardName {
 }
 
 struct XibIdentify {
-    
+    struct Main {
+       static let TabButtonBarCell = "TabButtonBarCell"
+    }
 }
