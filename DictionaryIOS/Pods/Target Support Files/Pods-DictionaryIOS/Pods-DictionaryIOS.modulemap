@@ -1,0 +1,6 @@
+framework module Pods_DictionaryIOS {
+  umbrella header "Pods-DictionaryIOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

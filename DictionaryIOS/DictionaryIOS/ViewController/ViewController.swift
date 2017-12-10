@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadWord(key: key)
-        label.text = NSLocalizedString("common_cancel_button", comment: "")
     }
 }
 

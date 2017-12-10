@@ -34,11 +34,15 @@ class OxFordWord: NSObject {
     var keyWord             : String = ""
     var pronunciations      : [OxFordWordPronuncation]?
     var wordClasses         : String = ""
-    var isLiked             : Bool = false
+    var thumUrl             : String = ""
+    var fullSizeUrl         : String = ""
+    var verbForms           : String = "TAo object"
+    var extraExamples       : [String] = [String]()
     var des                 : [OxFordWordDes] = [OxFordWordDes]()
     var idioms              : [String] = [String]()
-    var phrsalVerbs        : [OxFordWordPhrasal] = [OxFordWordPhrasal]()
+    var phrsalVerbs         : [OxFordWordPhrasal] = [OxFordWordPhrasal]()
     var nearbyWords         : [OxFordWordNearBy]  = [OxFordWordNearBy]()
+    var isLiked             : Bool = false
     
     override init() {
         super.init()
@@ -108,15 +112,3 @@ class OxFordWordNearBy: NSObject {
         super.init()
     }
 }
-
-//extension NSObject {
-//    func printAttr(){
-//        let mirrored_object = Mirror(reflecting: self)
-//        for (index, attr) in mirrored_object.children.enumerated() {
-//            if let property_name = attr.label as String! {
-//                Swift.print("Attr \(index): \(property_name) = \(attr.value)")
-//            }
-//        }
-//    }
-//}
-
