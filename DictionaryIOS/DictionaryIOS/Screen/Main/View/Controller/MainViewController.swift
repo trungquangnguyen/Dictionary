@@ -12,6 +12,7 @@ import XLPagerTabStrip
 
 class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarCell> {
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var textFieldSearch: UITextField!
     
     fileprivate var drawer: KYDrawerController?
     
@@ -22,11 +23,21 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
         shadowButtonBar()
     }
     
+    /**************************************************************************/
+    // MARK: - Action
+    /**************************************************************************/
     @IBAction func leftMenuAction(_ sender: Any) {
         drawer?.setDrawerState(.opened, animated: true)
     }
     
+    @IBAction func textFieldChange(_ sender: Any) {
+    }
+    /*************************---Action---*****************************/
+    
+    
+    /**************************************************************************/
     //MARK: XLPagerTabTrip
+    /**************************************************************************/
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -71,12 +82,46 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
             
         }
     }
-    /*__________________//---XLPagerTabTrip---\\__________________________*/
+    /*************************---XLPagerTabTrip---*****************************/
+    
+    
+    /**************************************************************************/
+    // MARK: - UITextFieldDelegate
+    /**************************************************************************/
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        search()
+        return true
+    }
+    
+    private func search(){
+        dismissKeyboard()
+        let text = textFieldSearch.text ?? ""
+        guard text != "" else {
+            return
+        }
+        showLoadding()
+        OxfordAPI.search(key: text) {[weak self] (oxford) in
+            self?.hideLoadding()
+            self?.pushToOxfordVC(oxford: oxford)
+        }
+    }
+    
+    private func pushToOxfordVC(oxford: OxFordWord?){
+        let vc = OxfordViewController.instantiateFromStoryboard(storyboardName: StoryBoardName.oxford)
+        pushVC(vc)
+    }
+    /*************************---UITextFieldDelegate---*****************************/
 }
 
+
+/**************************************************************************/
+// MARK: - Private Method
+/**************************************************************************/
 extension MainViewController {
     fileprivate func setUpUI(){
         setUpLeftMenu()
+        textFieldSearch.delegate = self
+        hideKeyboardWhenTappedAround(textField_: textFieldSearch)
     }
     
     private func setUpLeftMenu(){
@@ -85,4 +130,8 @@ extension MainViewController {
             self.drawer?.drawerWidth = Screen.WIDTH*2/3
         }
     }
+}
+/*************************---Private Method---*****************************/
+
+extension MainViewController: UITextFieldDelegate {
 }

@@ -7,7 +7,8 @@
 //
 
 struct StoryBoardName {
-    static let main         = "Main"
+    static let main              = "Main"
+    static let oxford            = "Oxford"
 }
 
 struct XibIdentify {
