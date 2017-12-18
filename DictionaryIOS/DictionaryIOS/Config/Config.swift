@@ -9,6 +9,9 @@ import UIKit
 
 //AppIcons
 struct AppIcons {
+    static let leftMenuIcon = UIImage(named: "iconLeftMenu")
+    static let searchIcon   = UIImage(named: "search-magnifier-interface-symbol")
+    static let speakerIcon  = UIImage(named: "speaker")
 }
 
 //AppColor
@@ -20,6 +23,7 @@ struct AppColors {
 
 // AppFonts
 struct AppFonts {
+    static let keyWordFont             = UIFont(name: "HelveticaNeue-Medium", size: 40) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let userNameFont             = UIFont(name: "HelveticaNeue-Medium", size: 18) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let postionNameFont          = UIFont(name: "HelveticaNeue", size: 14) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let titleNavigationFont      = UIFont(name: "HelveticaNeue-Medium", size: 18) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
@@ -32,3 +36,4 @@ struct AppFonts {
     static let diffrentMinFont             = UIFont(name: "HelveticaNeue", size: 11) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let commentFont              = UIFont(name: "HelveticaNeue", size: 14) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
 }
+

@@ -23,6 +23,11 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
         shadowButtonBar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView(buttonBarView, didSelectItemAt: IndexPath(item: 1, section: 0))
+    }
+    
     /**************************************************************************/
     // MARK: - Action
     /**************************************************************************/
@@ -51,7 +56,8 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let permistionVC = MorePermissionViewController()
-        return [permistionVC, permistionVC, permistionVC, permistionVC]
+        let oxFordVC = OxfordViewController.instantiateFromStoryboard(storyboardName: StoryBoardName.oxford)
+        return [permistionVC, oxFordVC, permistionVC, permistionVC]
     }
     
     override func configure(cell: TabButtonBarCell, for indicatorInfo: IndicatorInfo) {

@@ -12,6 +12,10 @@
 		5C5B65141EE019CB00B97E32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C5B65121EE019CB00B97E32 /* LaunchScreen.storyboard */; };
 		5C5B651F1EE01AFF00B97E32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5B651E1EE01AFF00B97E32 /* Assets.xcassets */; };
 		5C5B65231EE01B1C00B97E32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5B65221EE01B1C00B97E32 /* AppDelegate.swift */; };
+		5CB6A0BB1FE7B65B004D11FC /* OxFordTopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6A0B91FE7B65B004D11FC /* OxFordTopCollectionViewCell.swift */; };
+		5CB6A0BC1FE7B65B004D11FC /* OxFordTopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CB6A0BA1FE7B65B004D11FC /* OxFordTopCollectionViewCell.xib */; };
+		5CB6A0BE1FE7B804004D11FC /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6A0BD1FE7B804004D11FC /* UILabel.swift */; };
+		5CB6A0C01FE7BEBE004D11FC /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6A0BF1FE7BEBE004D11FC /* UICollectionView.swift */; };
 		5CBFB82E1EE6B47200800FA9 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB8291EE6B47200800FA9 /* TFHpple.m */; };
 		5CBFB82F1EE6B47200800FA9 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB82B1EE6B47200800FA9 /* TFHppleElement.m */; };
 		5CBFB8301EE6B47200800FA9 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB82D1EE6B47200800FA9 /* XPathQuery.m */; };
@@ -100,6 +104,10 @@
 		5C5B651E1EE01AFF00B97E32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C5B65201EE01B1100B97E32 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C5B65221EE01B1C00B97E32 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5CB6A0B91FE7B65B004D11FC /* OxFordTopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxFordTopCollectionViewCell.swift; sourceTree = "<group>"; };
+		5CB6A0BA1FE7B65B004D11FC /* OxFordTopCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OxFordTopCollectionViewCell.xib; sourceTree = "<group>"; };
+		5CB6A0BD1FE7B804004D11FC /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		5CB6A0BF1FE7BEBE004D11FC /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		5CBFB8241EE6B19A00800FA9 /* DictionaryIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DictionaryIOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		5CBFB8281EE6B47200800FA9 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		5CBFB8291EE6B47200800FA9 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
@@ -255,6 +263,22 @@
 			path = SupporttingFile;
 			sourceTree = "<group>";
 		};
+		5CB6A0B71FE7B623004D11FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5CB6A0B81FE7B63D004D11FC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5CB6A0B91FE7B65B004D11FC /* OxFordTopCollectionViewCell.swift */,
+				5CB6A0BA1FE7B65B004D11FC /* OxFordTopCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		5CBFB8261EE6B47200800FA9 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,10 +406,10 @@
 		6F9C41E91FA5D4B800945EA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6F9C41EF1FA5D56100945EA5 /* Cell */,
+				5CB6A0B81FE7B63D004D11FC /* Cell */,
+				5CB6A0B71FE7B623004D11FC /* View */,
 				6F9C41ED1FA5D56100945EA5 /* Controller */,
 				6F9C41EE1FA5D56100945EA5 /* StoryBoard */,
-				6F9C41F01FA5D56100945EA5 /* View */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -414,24 +438,12 @@
 			path = StoryBoard;
 			sourceTree = "<group>";
 		};
-		6F9C41EF1FA5D56100945EA5 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		6F9C41F01FA5D56100945EA5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		6F9C41F11FA5D5D100945EA5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				6F0BA0891FDD2C17005B9801 /* UIView.swift */,
+				5CB6A0BD1FE7B804004D11FC /* UILabel.swift */,
+				5CB6A0BF1FE7BEBE004D11FC /* UICollectionView.swift */,
 				6F0BA08D1FDD2C83005B9801 /* UIViewController.swift */,
 				6F0BA08B1FDD2C57005B9801 /* String.swift */,
 			);
@@ -626,6 +638,7 @@
 				6FC02D3A1FE010210033F281 /* Oxford.storyboard in Resources */,
 				6F9C41F91FA5D84A00945EA5 /* Localizable.strings in Resources */,
 				5C5B65141EE019CB00B97E32 /* LaunchScreen.storyboard in Resources */,
+				5CB6A0BC1FE7B65B004D11FC /* OxFordTopCollectionViewCell.xib in Resources */,
 				6FC02D381FE00EE10033F281 /* Main.storyboard in Resources */,
 				5C5B651F1EE01AFF00B97E32 /* Assets.xcassets in Resources */,
 				6F0BA0BA1FDD50A9005B9801 /* TabButtonBarCell.xib in Resources */,
@@ -699,7 +712,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -709,6 +722,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CB6A0C01FE7BEBE004D11FC /* UICollectionView.swift in Sources */,
 				6FC02D981FE02A260033F281 /* UIEdgeInsets.swift in Sources */,
 				6FC02D8B1FE02A260033F281 /* IntExtensions.swift in Sources */,
 				6FC02D971FE02A260033F281 /* UIDeviceExtensions.swift in Sources */,
@@ -721,6 +735,7 @@
 				6FC02DA21FE02A260033F281 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				6FC02D921FE02A260033F281 /* UIApplicationExtensions.swift in Sources */,
 				6FC02D771FE02A260033F281 /* BlockLongPress.swift in Sources */,
+				5CB6A0BE1FE7B804004D11FC /* UILabel.swift in Sources */,
 				6FC02D891FE02A260033F281 /* FileManagerExtension.swift in Sources */,
 				6FC02D821FE02A260033F281 /* CharacterExtensions.swift in Sources */,
 				6FA97F0A1FC31C0A00D6994B /* Operators.swift in Sources */,
@@ -746,6 +761,7 @@
 				6FC02DA71FE02A260033F281 /* UserDefaultsExtension.swift in Sources */,
 				6F0BA0881FDD28F8005B9801 /* OxfordApi.swift in Sources */,
 				6FC02DA41FE02A260033F281 /* UIViewExtensions.swift in Sources */,
+				5CB6A0BB1FE7B65B004D11FC /* OxFordTopCollectionViewCell.swift in Sources */,
 				6FC02D761FE02A260033F281 /* BlockButton.swift in Sources */,
 				6FC02D9D1FE02A260033F281 /* UISliderExtensions.swift in Sources */,
 				6FC02D7D1FE02A260033F281 /* BoolExtensions.swift in Sources */,

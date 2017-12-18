@@ -15,4 +15,8 @@ struct XibIdentify {
     struct Main {
        static let TabButtonBarCell = "TabButtonBarCell"
     }
+    
+    struct Oxford {
+        static let OxFordTopCollectionViewCell = "OxFordTopCollectionViewCell"
+    }
 }

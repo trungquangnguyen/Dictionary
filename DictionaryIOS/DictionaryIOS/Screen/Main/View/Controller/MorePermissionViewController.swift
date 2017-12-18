@@ -11,7 +11,7 @@ import XLPagerTabStrip
 
 class MorePermissionViewController: UIViewController, IndicatorInfoProvider {
     
-    let itemInfo        = IndicatorInfo(title: "", image: UIImage(named: "iconLeftMenu"))
+    let itemInfo        = IndicatorInfo(title: "", image: AppIcons.leftMenuIcon)
     
     override func viewDidLoad() {
         
