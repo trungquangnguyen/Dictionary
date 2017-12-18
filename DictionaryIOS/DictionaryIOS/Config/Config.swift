@@ -23,7 +23,8 @@ struct AppColors {
 
 // AppFonts
 struct AppFonts {
-    static let keyWordFont             = UIFont(name: "HelveticaNeue-Medium", size: 40) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+    static let keyWordFont             = UIFont(name: "HelveticaNeue-BoldItalic", size: 40) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+    static let wordClassFont             = UIFont(name: "HelveticaNeue-Italic", size: 24) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let userNameFont             = UIFont(name: "HelveticaNeue-Medium", size: 18) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let postionNameFont          = UIFont(name: "HelveticaNeue", size: 14) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let titleNavigationFont      = UIFont(name: "HelveticaNeue-Medium", size: 18) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)

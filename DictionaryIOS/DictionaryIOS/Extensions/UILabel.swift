@@ -19,6 +19,11 @@ extension UILabel {
         self.textColor = .black
     }
     
+    func setSize24_italic(){
+        self.font = AppFonts.wordClassFont
+        self.textColor = .black
+    }
+    
     static func size(font:UIFont, string: String) -> CGSize {
         let label = UILabel(frame: CGRect(x: 0, y: 0, w: 1000, h: 1000))
         label.text = string

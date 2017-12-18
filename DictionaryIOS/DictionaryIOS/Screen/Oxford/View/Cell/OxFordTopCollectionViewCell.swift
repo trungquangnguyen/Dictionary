@@ -7,15 +7,27 @@
 //
 
 import UIKit
+protocol OxFordTopCollectionViewCellDelegate {
+    func didSelectSpeakerButton(urlString: String)
+}
 
 class OxFordTopCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var labelSpelling: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var delegate: OxFordTopCollectionViewCellDelegate!
+    var prounication: OxFordWordPronuncation!{
+        didSet{
+            labelSpelling.text = "/\(prounication.spelling)/"
+        }
     }
 
     @IBAction func speakerAction(_ sender: Any) {
+        delegate.didSelectSpeakerButton(urlString: prounication.pronounce)
+    }
+}
+
+extension OxFordTopCollectionViewCell {
+    fileprivate func setFont(){
+        labelSpelling.setSize12_black()
     }
 }

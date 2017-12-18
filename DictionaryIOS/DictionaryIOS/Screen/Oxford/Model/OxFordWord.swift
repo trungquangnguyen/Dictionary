@@ -33,7 +33,7 @@ class Demo: HTMLMappable {
 class OxFordWord: HTMLMappable {
     var keyWord             : String = ""
     var pronunciations      : [OxFordWordPronuncation] = [OxFordWordPronuncation]()
-    var wordClasses         : String = ""
+    var wordClasses         : [String] = [String]()
     var thumUrl             : String = ""
     var fullSizeUrl         : String = ""
     var verbForms           : [VerdForm] = [VerdForm]()
@@ -50,7 +50,7 @@ class OxFordWord: HTMLMappable {
     
     func mapping(map: HTMLMap) {
         pronunciations               <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']/div[@class='top-g']/div[@class='pron-gs ei-g']//span[@class='pron-g']", .TFHpple, .ArrayObject]
-        wordClasses                  <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//div[@class='webtop-g']//span[@class='pos']", .TFHpple]
+        wordClasses                  <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']//div[@class='webtop-g']//span[@class='pos']", .TFHpple, .BaseArray]
         thumUrl                      <- map["//div[@class='entry']/ol[@class='h-g']/span[@class='sn-gs']/li[@class='sn-g']/div[@id='ox-enlarge']/a[@class='topic']/img[@class='thumb']", .TFHpple, .Attribute, "src"]
         fullSizeUrl                  <- map["//div[@class='entry']/ol[@class='h-g']/span[@class='sn-gs']/li[@class='sn-g']/div[@id='ox-enlarge']/a[@class='topic']", .TFHpple, .Attribute, "href"]
         verbForms                    <- map["//div[@class='entry']/ol[@class='h-g']/div[@class='top-container']/div[@class='top-g']/span[@class='collapse']//span[@class='body']/span[@class='vp-g']", .TFHpple, .ArrayObject]

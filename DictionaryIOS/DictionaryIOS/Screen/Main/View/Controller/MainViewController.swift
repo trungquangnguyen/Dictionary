@@ -14,6 +14,9 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var textFieldSearch: UITextField!
     
+    let constainnotFind = "Không tìm thấy"
+    let oxFordVC = OxfordViewController.instantiateFromStoryboard(storyboardName: StoryBoardName.oxford)
+    
     fileprivate var drawer: KYDrawerController?
     
     override func viewDidLoad() {
@@ -25,7 +28,6 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView(buttonBarView, didSelectItemAt: IndexPath(item: 1, section: 0))
     }
     
     /**************************************************************************/
@@ -56,7 +58,6 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let permistionVC = MorePermissionViewController()
-        let oxFordVC = OxfordViewController.instantiateFromStoryboard(storyboardName: StoryBoardName.oxford)
         return [permistionVC, oxFordVC, permistionVC, permistionVC]
     }
     
@@ -95,26 +96,33 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
     // MARK: - UITextFieldDelegate
     /**************************************************************************/
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        showLoadding()
+        dismissKeyboard()
         search()
         return true
     }
     
     private func search(){
-        dismissKeyboard()
         let text = textFieldSearch.text ?? ""
         guard text != "" else {
+            self.hideLoadding()
             return
         }
-        showLoadding()
         OxfordAPI.search(key: text) {[weak self] (oxford) in
             self?.hideLoadding()
-            self?.pushToOxfordVC(oxford: oxford)
+            self?.setDataForOxfordVC(oxford: oxford)
         }
     }
     
-    private func pushToOxfordVC(oxford: OxFordWord?){
-        let vc = OxfordViewController.instantiateFromStoryboard(storyboardName: StoryBoardName.oxford)
-        pushVC(vc)
+    private func setDataForOxfordVC(oxford: OxFordWord?){
+        guard oxford != nil else {
+            showToast(message: constainnotFind)
+            return
+        }
+        oxFordVC.word = oxford
+        if currentIndex != 1 {
+            collectionView(buttonBarView, didSelectItemAt: IndexPath(item: 1, section: 0))
+        }
     }
     /*************************---UITextFieldDelegate---*****************************/
 }

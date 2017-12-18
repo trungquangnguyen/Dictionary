@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-BoldItalic</string>
         </array>
     </customFonts>
     <scenes>
@@ -27,16 +27,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjz-3D-t6U" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awesome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpk-YJ-sVi">
-                                        <rect key="frame" x="10" y="10" width="176" height="47"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpk-YJ-sVi">
+                                        <rect key="frame" x="15" y="10" width="78" height="48"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NBN-gy-r5o" userLabel="CollectionView Pronunciations">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="106" width="375" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="skx-fp-dXy"/>
@@ -47,37 +47,28 @@
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="m0u-W5-xmk">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </view>
-                                            </collectionViewCell>
-                                        </cells>
+                                        <cells/>
                                         <connections>
                                             <outlet property="dataSource" destination="G1x-Ta-bla" id="Nhv-s0-cLn"/>
                                             <outlet property="delegate" destination="G1x-Ta-bla" id="Y2h-wW-Oys"/>
                                         </connections>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/n/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYC-79-hNu">
-                                        <rect key="frame" x="118.5" y="60" width="19" height="18"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYC-79-hNu">
+                                        <rect key="frame" x="30" y="73" width="17" height="18"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="WYC-79-hNu" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" constant="30" id="28u-za-UvK"/>
                                     <constraint firstAttribute="trailing" secondItem="NBN-gy-r5o" secondAttribute="trailing" id="DwR-66-ngz"/>
                                     <constraint firstItem="NBN-gy-r5o" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" id="EvR-uY-D2v"/>
-                                    <constraint firstItem="WYC-79-hNu" firstAttribute="centerX" secondItem="mpk-YJ-sVi" secondAttribute="centerX" constant="30" id="UhR-Bb-4JT"/>
                                     <constraint firstAttribute="bottom" secondItem="NBN-gy-r5o" secondAttribute="bottom" id="eZq-f6-oah"/>
-                                    <constraint firstItem="mpk-YJ-sVi" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" constant="10" id="vJV-u1-4bZ"/>
+                                    <constraint firstItem="mpk-YJ-sVi" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" constant="15" id="vJV-u1-4bZ"/>
                                     <constraint firstItem="mpk-YJ-sVi" firstAttribute="top" secondItem="Zjz-3D-t6U" secondAttribute="top" constant="10" id="yYa-Eh-lN0"/>
-                                    <constraint firstItem="NBN-gy-r5o" firstAttribute="top" secondItem="WYC-79-hNu" secondAttribute="bottom" constant="10" id="ydO-6A-67T"/>
-                                    <constraint firstItem="WYC-79-hNu" firstAttribute="top" secondItem="mpk-YJ-sVi" secondAttribute="bottom" constant="3" id="zua-Ms-AHB"/>
+                                    <constraint firstItem="NBN-gy-r5o" firstAttribute="top" secondItem="WYC-79-hNu" secondAttribute="bottom" constant="15" id="ydO-6A-67T"/>
+                                    <constraint firstItem="WYC-79-hNu" firstAttribute="top" secondItem="mpk-YJ-sVi" secondAttribute="bottom" constant="15" id="zua-Ms-AHB"/>
                                 </constraints>
                             </view>
                         </subviews>
