@@ -13,4 +13,5 @@ pod 'RxRealm',:git => 'https://github.com/RxSwiftCommunity/RxRealm',:tag => '0.7
 pod 'XLPagerTabStrip'
 pod 'KYDrawerController',:git => 'https://github.com/ykyouhei/KYDrawerController', :tag => '2.0.4'
 pod 'Toast-Swift', :git => 'https://github.com/scalessec/Toast-Swift', :tag => '3.0.1'
+pod 'SDWebImage', '4.1.2'
 end

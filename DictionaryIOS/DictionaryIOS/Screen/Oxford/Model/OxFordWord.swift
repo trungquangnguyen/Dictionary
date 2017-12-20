@@ -71,7 +71,7 @@ class OxFordWordPronuncation: HTMLMappable {
     }
     
     func mapping(map: HTMLMap) {
-        spelling                  <- map["//span[@class='phon']", .TFHppleElement, 3, true]
+        spelling                  <- map["//span[@class='phon']", .TFHppleElement]
         pronounce                 <- map["", .TFHppleElement, .Attribute, "data-src-mp3", 3, true]
     }
 }

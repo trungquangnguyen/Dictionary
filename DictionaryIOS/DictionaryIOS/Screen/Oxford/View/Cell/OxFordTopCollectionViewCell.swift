@@ -15,9 +15,9 @@ class OxFordTopCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var labelSpelling: UILabel!
     
     var delegate: OxFordTopCollectionViewCellDelegate!
-    var prounication: OxFordWordPronuncation!{
+    var prounication: PronuncationViewModel!{
         didSet{
-            labelSpelling.text = "/\(prounication.spelling)/"
+            labelSpelling.text = prounication.spelling
         }
     }
 

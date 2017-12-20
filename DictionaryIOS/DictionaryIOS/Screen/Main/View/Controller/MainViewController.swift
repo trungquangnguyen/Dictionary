@@ -8,39 +8,22 @@
 
 import KYDrawerController
 import XLPagerTabStrip
-//import RxSwift
-//import RxCocoa
 
 class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarCell> {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var textFieldSearch: UITextField!
     
-    let constainnotFind = "Không tìm thấy"
+    let constainnotFind = "Cần hiện ra list các từ gợi ý cho tìm kiếm không thấy"
     let oxFordVC = OxfordViewController.instantiateFromStoryboard(storyboardName: StoryBoardName.oxford)
     
-//    fileprivate var disposeBag = DisposeBag()
     fileprivate var drawer: KYDrawerController?
-//    fileprivate var currentSearchText: String?{
-//        didSet{
-//            print(currentSearchText ?? "")
-//        }
-//    }
+
     
     override func viewDidLoad() {
         changeSelectedBarColor()
         super.viewDidLoad()
         setUpUI()
         shadowButtonBar()
-//        textFieldSearch.rx.text
-//            .throttle(0.5, scheduler: MainScheduler.instance)
-//            .distinctUntilChanged { (firstString, secondString) -> Bool in
-//                firstString == secondString
-//            }
-//            .subscribe(onNext: { [weak self] element in
-//                self?.currentSearchText = element
-//            })
-//            .disposed(by: disposeBag)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -136,7 +119,7 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
             showToast(message: constainnotFind)
             return
         }
-        oxFordVC.word = oxford
+        oxFordVC.viewModel = WordViewModel(word: oxford!)
         if currentIndex != 1 {
             collectionView(buttonBarView, didSelectItemAt: IndexPath(item: 1, section: 0))
         }

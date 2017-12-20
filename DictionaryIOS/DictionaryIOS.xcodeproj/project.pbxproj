@@ -33,6 +33,8 @@
 		6F0BA0B91FDD50A9005B9801 /* TabButtonBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0BA0B21FDD50A9005B9801 /* TabButtonBarCell.swift */; };
 		6F0BA0BA1FDD50A9005B9801 /* TabButtonBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F0BA0B31FDD50A9005B9801 /* TabButtonBarCell.xib */; };
 		6F1EF58C1FA5DEAF00B4F75F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EF58A1FA5DEAF00B4F75F /* InfoPlist.strings */; };
+		6F21F3A01FEAA3FE007B11A3 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F21F39F1FEAA3FE007B11A3 /* UIImageView.swift */; };
+		6F21F3A21FEAABFF007B11A3 /* OxfordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F21F3A11FEAABFF007B11A3 /* OxfordViewModel.swift */; };
 		6F9C41EC1FA5D4E300945EA5 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9C41EB1FA5D4E300945EA5 /* Dynamic.swift */; };
 		6F9C41F91FA5D84A00945EA5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F9C41FB1FA5D84A00945EA5 /* Localizable.strings */; };
 		6FA97F0A1FC31C0A00D6994B /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA97F091FC31C0A00D6994B /* Operators.swift */; };
@@ -132,6 +134,8 @@
 		6F1EF5881FA5DA9400B4F75F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F1EF5891FA5DAAF00B4F75F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F1EF58B1FA5DEAF00B4F75F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6F21F39F1FEAA3FE007B11A3 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		6F21F3A11FEAABFF007B11A3 /* OxfordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxfordViewModel.swift; sourceTree = "<group>"; };
 		6F50AFD61FA5DEF2001C5213 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F9C41EB1FA5D4E300945EA5 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		6F9C42011FA5D9E800945EA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -232,11 +236,11 @@
 			isa = PBXGroup;
 			children = (
 				6F9C41E61FA5D44800945EA5 /* Screen */,
-				5CBFB8261EE6B47200800FA9 /* ThirdParty */,
 				5C5B651B1EE01AAC00B97E32 /* Resource */,
 				6F0BA08F1FDD2D76005B9801 /* Config */,
-				6F9C41F21FA5D5D100945EA5 /* DataBase */,
+				5CBFB8261EE6B47200800FA9 /* ThirdParty */,
 				6F9C41F11FA5D5D100945EA5 /* Extensions */,
+				6F9C41F21FA5D5D100945EA5 /* DataBase */,
 				6F9C41F31FA5D5D100945EA5 /* Services */,
 				5C5B651D1EE01AC200B97E32 /* SupporttingFile */,
 			);
@@ -418,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				6F9C41EB1FA5D4E300945EA5 /* Dynamic.swift */,
+				6F21F3A11FEAABFF007B11A3 /* OxfordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 			children = (
 				6F0BA0891FDD2C17005B9801 /* UIView.swift */,
 				5CB6A0BD1FE7B804004D11FC /* UILabel.swift */,
+				6F21F39F1FEAA3FE007B11A3 /* UIImageView.swift */,
 				5CB6A0BF1FE7BEBE004D11FC /* UICollectionView.swift */,
 				6F0BA08D1FDD2C83005B9801 /* UIViewController.swift */,
 				6F0BA08B1FDD2C57005B9801 /* String.swift */,
@@ -677,6 +683,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 			);
@@ -689,6 +696,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 			);
@@ -728,12 +736,14 @@
 				6FC02D971FE02A260033F281 /* UIDeviceExtensions.swift in Sources */,
 				6FC02DA01FE02A260033F281 /* UITextFieldExtensions.swift in Sources */,
 				6F0BA0B71FDD50A9005B9801 /* MainViewController.swift in Sources */,
+				6F21F3A21FEAABFF007B11A3 /* OxfordViewModel.swift in Sources */,
 				5CBFB82F1EE6B47200800FA9 /* TFHppleElement.m in Sources */,
 				6FC02D931FE02A260033F281 /* UIBarButtonItemExtensions.swift in Sources */,
 				6FC02D811FE02A260033F281 /* CGRectExtensions.swift in Sources */,
 				6F0BA0931FDD2DA5005B9801 /* Identify.swift in Sources */,
 				6FC02DA21FE02A260033F281 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				6FC02D921FE02A260033F281 /* UIApplicationExtensions.swift in Sources */,
+				6F21F3A01FEAA3FE007B11A3 /* UIImageView.swift in Sources */,
 				6FC02D771FE02A260033F281 /* BlockLongPress.swift in Sources */,
 				5CB6A0BE1FE7B804004D11FC /* UILabel.swift in Sources */,
 				6FC02D891FE02A260033F281 /* FileManagerExtension.swift in Sources */,

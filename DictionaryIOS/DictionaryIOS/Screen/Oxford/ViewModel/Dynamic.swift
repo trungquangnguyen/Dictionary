@@ -6,26 +6,44 @@
 //  Copyright © 2017 SSD. All rights reserved.
 //
 
+//class Dynamic<T> {
+//    typealias Listener = (T) -> ()
+//    var listener: Listener?
+//
+//    func bind(_ listener: Listener?) {
+//        self.listener = listener
+//    }
+//
+//    func bindAndFire(_ listener: Listener?) {
+//        self.listener = listener
+//        listener?(value)
+//    }
+//
+//    var value: T {
+//        didSet {
+//            listener?(value)
+//        }
+//    }
+//
+//    init(_ v: T) {
+//        value = v
+//    }
+//}
+
+
 class Dynamic<T> {
-    typealias Listener = (T) -> ()
-    var listener: Listener?
     
-    func bind(_ listener: Listener?) {
-        self.listener = listener
-    }
+    var bind :(T) -> () = { _ in }
     
-    func bindAndFire(_ listener: Listener?) {
-        self.listener = listener
-        listener?(value)
-    }
-    
-    var value: T {
+    var value :T? {
         didSet {
-            listener?(value)
+            bind(value!)
         }
     }
     
-    init(_ v: T) {
+    init(_ v :T) {
         value = v
     }
+    
 }
+

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,6 +30,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjz-3D-t6U" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKK-RG-1eA">
+                                        <rect key="frame" x="279" y="10" width="86" height="86"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xKK-RG-1eA" secondAttribute="height" multiplier="1:1" id="zTk-NO-TFT"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ux-xn-6dq">
+                                        <rect key="frame" x="279" y="10" width="86" height="86"/>
+                                        <connections>
+                                            <action selector="showFullImageAction:" destination="G1x-Ta-bla" eventType="touchUpInside" id="ty4-Av-dkG"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpk-YJ-sVi">
                                         <rect key="frame" x="15" y="10" width="78" height="48"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="40"/>
@@ -62,9 +75,16 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WYC-79-hNu" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" constant="30" id="28u-za-UvK"/>
+                                    <constraint firstAttribute="trailing" secondItem="xKK-RG-1eA" secondAttribute="trailing" constant="10" id="4LY-tH-sCA"/>
                                     <constraint firstAttribute="trailing" secondItem="NBN-gy-r5o" secondAttribute="trailing" id="DwR-66-ngz"/>
+                                    <constraint firstItem="NBN-gy-r5o" firstAttribute="top" secondItem="xKK-RG-1eA" secondAttribute="bottom" constant="10" id="EBb-iz-Md9"/>
                                     <constraint firstItem="NBN-gy-r5o" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" id="EvR-uY-D2v"/>
+                                    <constraint firstItem="6ux-xn-6dq" firstAttribute="width" secondItem="xKK-RG-1eA" secondAttribute="width" id="GE0-L6-Itf"/>
+                                    <constraint firstItem="xKK-RG-1eA" firstAttribute="top" secondItem="Zjz-3D-t6U" secondAttribute="top" constant="10" id="SAp-KJ-qDL"/>
+                                    <constraint firstItem="6ux-xn-6dq" firstAttribute="centerY" secondItem="xKK-RG-1eA" secondAttribute="centerY" id="cMC-4A-9aq"/>
                                     <constraint firstAttribute="bottom" secondItem="NBN-gy-r5o" secondAttribute="bottom" id="eZq-f6-oah"/>
+                                    <constraint firstItem="6ux-xn-6dq" firstAttribute="height" secondItem="xKK-RG-1eA" secondAttribute="height" id="j7f-Y7-c44"/>
+                                    <constraint firstItem="6ux-xn-6dq" firstAttribute="centerX" secondItem="xKK-RG-1eA" secondAttribute="centerX" id="mwS-Sz-pdM"/>
                                     <constraint firstItem="mpk-YJ-sVi" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" constant="15" id="vJV-u1-4bZ"/>
                                     <constraint firstItem="mpk-YJ-sVi" firstAttribute="top" secondItem="Zjz-3D-t6U" secondAttribute="top" constant="10" id="yYa-Eh-lN0"/>
                                     <constraint firstItem="NBN-gy-r5o" firstAttribute="top" secondItem="WYC-79-hNu" secondAttribute="bottom" constant="15" id="ydO-6A-67T"/>
@@ -81,6 +101,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionPronuciation" destination="NBN-gy-r5o" id="QVo-HH-2qp"/>
+                        <outlet property="imageThumnail" destination="xKK-RG-1eA" id="4yQ-2J-tnQ"/>
                         <outlet property="labelKeyWord" destination="mpk-YJ-sVi" id="MYw-mf-pGB"/>
                         <outlet property="labelWordClass" destination="WYC-79-hNu" id="VYf-4g-LQp"/>
                         <outlet property="topView" destination="Zjz-3D-t6U" id="tDh-UZ-uPN"/>

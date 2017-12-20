@@ -11,11 +11,12 @@ import XLPagerTabStrip
 
 class OxfordViewController: UIViewController, IndicatorInfoProvider {
     
-    var word: OxFordWord!{
+    var viewModel: WordViewModel!{
         didSet{
             guard isViewLoaded else {
                 return
             }
+            //viewModel.keyWord.bind = { [unowned self] in print($0) }
             setDataTopView()
         }
     }
@@ -24,6 +25,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
         super.viewDidLoad()
         configTopViewUI()
     }
+    
     /**************************************************************************/
     // MARK: - IndicatorInfoProvider
     /**************************************************************************/
@@ -41,6 +43,12 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     @IBOutlet weak var labelKeyWord: UILabel!
     @IBOutlet weak var labelWordClass: UILabel!
     @IBOutlet weak var collectionPronuciation: UICollectionView!
+    @IBOutlet weak var imageThumnail: UIImageView!
+    let collectionCellPronunicationHeight: CGFloat = 50
+    
+    
+    @IBAction func showFullImageAction(_ sender: Any) {
+    }
     
     private func configTopViewUI(){
         labelKeyWord.setKeyWordFont()
@@ -50,16 +58,13 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     }
     
     private func setDataTopView(){
-        guard word != nil else {
+        guard viewModel != nil else {
             return
         }
-        labelKeyWord.text = word.keyWord
-        labelWordClass.text = "/\(getWordClass())/"
+        labelKeyWord.text = viewModel.keyWord
+        labelWordClass.text = viewModel.wordClasses
+        imageThumnail.setImageWithURLString(string: viewModel.thumUrl, supperView: topView)
         collectionPronuciation.reloadData()
-    }
-    
-    private func getWordClass() -> String {
-        return word.wordClasses.joined(separator: ", ")
     }
     /**************************************************************************/
 }
@@ -69,12 +74,12 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
 /**************************************************************************/
 extension OxfordViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return word?.pronunciations.count ?? 0
+        return viewModel?.pronunciations.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: XibIdentify.Oxford.OxFordTopCollectionViewCell, for: indexPath) as! OxFordTopCollectionViewCell
-        cell.prounication = word.pronunciations[indexPath.row]
+        cell.prounication = viewModel.pronunciations[indexPath.row]
         cell.delegate = self
         return cell
     }
@@ -86,7 +91,12 @@ extension OxfordViewController: UICollectionViewDataSource {
 
 extension OxfordViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 50)
+        return getSize(string: viewModel.pronunciations[indexPath.row].spelling)
+    }
+    
+    private func getSize(string: String) -> CGSize{
+        let width = UILabel.width(font: AppFonts.descriptionFont, string: string) + 70
+        return CGSize(width: width, height: collectionCellPronunicationHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
