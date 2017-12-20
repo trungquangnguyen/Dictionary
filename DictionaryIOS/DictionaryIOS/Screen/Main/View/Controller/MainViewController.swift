@@ -8,8 +8,8 @@
 
 import KYDrawerController
 import XLPagerTabStrip
-import RxSwift
-import RxCocoa
+//import RxSwift
+//import RxCocoa
 
 class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarCell> {
     @IBOutlet weak var shadowView: UIView!
@@ -18,28 +18,28 @@ class MainViewController: BaseButtonBarPagerTabStripViewController<TabButtonBarC
     let constainnotFind = "Không tìm thấy"
     let oxFordVC = OxfordViewController.instantiateFromStoryboard(storyboardName: StoryBoardName.oxford)
     
-    fileprivate var disposeBag = DisposeBag()
+//    fileprivate var disposeBag = DisposeBag()
     fileprivate var drawer: KYDrawerController?
-    fileprivate var currentSearchText: String?{
-        didSet{
-            print(currentSearchText ?? "")
-        }
-    }
+//    fileprivate var currentSearchText: String?{
+//        didSet{
+//            print(currentSearchText ?? "")
+//        }
+//    }
     
     override func viewDidLoad() {
         changeSelectedBarColor()
         super.viewDidLoad()
         setUpUI()
         shadowButtonBar()
-        textFieldSearch.rx.text
-            .throttle(0.5, scheduler: MainScheduler.instance)
-            .distinctUntilChanged { (firstString, secondString) -> Bool in
-                firstString == secondString
-            }
-            .subscribe(onNext: { [weak self] element in
-                self?.currentSearchText = element
-            })
-            .disposed(by: disposeBag)
+//        textFieldSearch.rx.text
+//            .throttle(0.5, scheduler: MainScheduler.instance)
+//            .distinctUntilChanged { (firstString, secondString) -> Bool in
+//                firstString == secondString
+//            }
+//            .subscribe(onNext: { [weak self] element in
+//                self?.currentSearchText = element
+//            })
+//            .disposed(by: disposeBag)
         
     }
     
