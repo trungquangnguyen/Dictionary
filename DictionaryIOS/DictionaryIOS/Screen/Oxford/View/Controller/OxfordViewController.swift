@@ -17,6 +17,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
                 return
             }
             setDataTopView()
+            verbFormViewModels = viewModel.verbForms
         }
     }
     
@@ -78,6 +79,15 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     @IBOutlet weak var verbFormContrainsHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewWordForms: UITableView!
     
+    fileprivate var verbFormViewModels = [VerbFormsViewModel](){
+        didSet{
+            guard isViewLoaded else {
+                return
+            }
+            tableViewWordForms.reloadData()
+        }
+    }
+    
     private var isShowWordForms = false{
         didSet{
             isShowWordForms ? (verbFormContrainsHeight.constant = 500) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
@@ -86,6 +96,10 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     
     private func configWordFormsViewUI() {
         tableViewWordForms.registerCellByNibs(strings: [XibIdentify.Oxford.WorbFormTableViewCell])
+        tableViewWordForms.tableFooterView = UIView()
+        tableViewWordForms.rowHeight = UITableViewAutomaticDimension
+        tableViewWordForms.estimatedRowHeight = 40
+        verbFormViewModels = viewModel.verbForms
     }
     
     @IBAction func wordFormsAction(_ sender: Any) {
@@ -151,11 +165,12 @@ extension OxfordViewController: OxFordTopCollectionViewCellDelegate {
 /**************************************************************************/
 extension OxfordViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return verbFormViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, for: indexPath) as! OxFordWorbFormTableViewCell
+        cell.verbForm = verbFormViewModels[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }

@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjz-3D-t6U" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="456"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="196"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKK-RG-1eA">
                                         <rect key="frame" x="279" y="10" width="86" height="86"/>
@@ -74,9 +74,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fme-ga-hir" userLabel="VerbForms">
-                                        <rect key="frame" x="0.0" y="156" width="375" height="300"/>
+                                        <rect key="frame" x="0.0" y="156" width="375" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se8-w2-j7y">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se8-w2-j7y">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -94,7 +94,7 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-IR-AVx">
-                                                <rect key="frame" x="0.0" y="40" width="375" height="260"/>
+                                                <rect key="frame" x="0.0" y="40" width="375" height="0.0"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="G1x-Ta-bla" id="mkR-Tx-BKd"/>
@@ -109,7 +109,7 @@
                                             <constraint firstAttribute="trailing" secondItem="aJX-IR-AVx" secondAttribute="trailing" id="6ha-r5-N5b"/>
                                             <constraint firstItem="aJX-IR-AVx" firstAttribute="leading" secondItem="fme-ga-hir" secondAttribute="leading" id="E2t-xx-wlU"/>
                                             <constraint firstAttribute="bottom" secondItem="aJX-IR-AVx" secondAttribute="bottom" id="ShB-Yw-If8"/>
-                                            <constraint firstAttribute="height" constant="300" id="Vs8-00-HLX"/>
+                                            <constraint firstAttribute="height" constant="40" id="Vs8-00-HLX"/>
                                             <constraint firstItem="Se8-w2-j7y" firstAttribute="leading" secondItem="fme-ga-hir" secondAttribute="leading" id="nDs-tG-wpD"/>
                                             <constraint firstItem="Se8-w2-j7y" firstAttribute="top" secondItem="fme-ga-hir" secondAttribute="top" id="sEc-NF-gsO"/>
                                         </constraints>

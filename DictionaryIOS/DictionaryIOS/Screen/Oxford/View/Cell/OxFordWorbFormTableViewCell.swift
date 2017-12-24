@@ -12,10 +12,22 @@ class OxFordWorbFormTableViewCell: UITableViewCell {
     @IBOutlet weak var labelExample: UILabel!
     @IBOutlet weak var labelEnglishSpell: UILabel!
     @IBOutlet weak var labelAmericanSpell: UILabel!
+    @IBOutlet weak var constraintWidthlabelEnSpell: NSLayoutConstraint!
+    @IBOutlet weak var constraintWidthUsSpell: NSLayoutConstraint!
+    
+    var verbForm: VerbFormsViewModel!{
+        didSet{
+            labelExample.text = verbForm.example
+            labelEnglishSpell.text = verbForm.englishSpelling
+            labelAmericanSpell.text = verbForm.americanSpelling
+            constraintWidthUsSpell.constant = UILabel.width(font: AppFonts.diffrentFont, string: verbForm.americanSpelling)
+            constraintWidthlabelEnSpell.constant = UILabel.width(font: AppFonts.diffrentFont, string: verbForm.englishSpelling)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setFont()
     }
 
     @IBAction func englishSpellAction(_ sender: Any) {

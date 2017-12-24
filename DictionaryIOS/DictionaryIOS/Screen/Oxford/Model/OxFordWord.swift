@@ -99,7 +99,7 @@ class VerdFormSpell: HTMLMappable {
     }
     
     func mapping(map: HTMLMap) {
-        spelling                <- map["//span[@class='phon']", .TFHppleElement, 3, true]
+        spelling                <- map["//span[@class='phon']", .TFHppleElement]
         pronounceURL             <- map["", .TFHppleElement, .Attribute, "data-src-mp3", 3, true]
     }
 }
