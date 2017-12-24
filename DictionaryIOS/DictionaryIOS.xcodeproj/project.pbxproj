@@ -37,6 +37,9 @@
 		6F21F3A21FEAABFF007B11A3 /* OxfordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F21F3A11FEAABFF007B11A3 /* OxfordViewModel.swift */; };
 		6F9C41EC1FA5D4E300945EA5 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9C41EB1FA5D4E300945EA5 /* Dynamic.swift */; };
 		6F9C41F91FA5D84A00945EA5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F9C41FB1FA5D84A00945EA5 /* Localizable.strings */; };
+		6FA57B691FEF55F700160B08 /* OxFordWorbFormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA57B671FEF55F700160B08 /* OxFordWorbFormTableViewCell.swift */; };
+		6FA57B6A1FEF55F700160B08 /* OxFordWorbFormTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FA57B681FEF55F700160B08 /* OxFordWorbFormTableViewCell.xib */; };
+		6FA57B6C1FEFBE7C00160B08 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA57B6B1FEFBE7C00160B08 /* UITableView.swift */; };
 		6FA97F0A1FC31C0A00D6994B /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA97F091FC31C0A00D6994B /* Operators.swift */; };
 		6FA97F0C1FC31CCB00D6994B /* JinMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA97F0B1FC31CCB00D6994B /* JinMap.swift */; };
 		6FA97F0E1FC31EE600D6994B /* FromHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA97F0D1FC31EE600D6994B /* FromHTML.swift */; };
@@ -139,6 +142,9 @@
 		6F50AFD61FA5DEF2001C5213 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F9C41EB1FA5D4E300945EA5 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		6F9C42011FA5D9E800945EA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6FA57B671FEF55F700160B08 /* OxFordWorbFormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxFordWorbFormTableViewCell.swift; sourceTree = "<group>"; };
+		6FA57B681FEF55F700160B08 /* OxFordWorbFormTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OxFordWorbFormTableViewCell.xib; sourceTree = "<group>"; };
+		6FA57B6B1FEFBE7C00160B08 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		6FA97F091FC31C0A00D6994B /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		6FA97F0B1FC31CCB00D6994B /* JinMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JinMap.swift; sourceTree = "<group>"; };
 		6FA97F0D1FC31EE600D6994B /* FromHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromHTML.swift; sourceTree = "<group>"; };
@@ -279,6 +285,8 @@
 			children = (
 				5CB6A0B91FE7B65B004D11FC /* OxFordTopCollectionViewCell.swift */,
 				5CB6A0BA1FE7B65B004D11FC /* OxFordTopCollectionViewCell.xib */,
+				6FA57B671FEF55F700160B08 /* OxFordWorbFormTableViewCell.swift */,
+				6FA57B681FEF55F700160B08 /* OxFordWorbFormTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -448,6 +456,7 @@
 			children = (
 				6F0BA0891FDD2C17005B9801 /* UIView.swift */,
 				5CB6A0BD1FE7B804004D11FC /* UILabel.swift */,
+				6FA57B6B1FEFBE7C00160B08 /* UITableView.swift */,
 				6F21F39F1FEAA3FE007B11A3 /* UIImageView.swift */,
 				5CB6A0BF1FE7BEBE004D11FC /* UICollectionView.swift */,
 				6F0BA08D1FDD2C83005B9801 /* UIViewController.swift */,
@@ -641,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F1EF58C1FA5DEAF00B4F75F /* InfoPlist.strings in Resources */,
+				6FA57B6A1FEF55F700160B08 /* OxFordWorbFormTableViewCell.xib in Resources */,
 				6FC02D3A1FE010210033F281 /* Oxford.storyboard in Resources */,
 				6F9C41F91FA5D84A00945EA5 /* Localizable.strings in Resources */,
 				5C5B65141EE019CB00B97E32 /* LaunchScreen.storyboard in Resources */,
@@ -781,6 +791,7 @@
 				6F9C41EC1FA5D4E300945EA5 /* Dynamic.swift in Sources */,
 				5C0A19461FC58B8E00FF1B2F /* HTMLMapable.swift in Sources */,
 				6FC02D7F1FE02A260033F281 /* CGFloatExtensions.swift in Sources */,
+				6FA57B691FEF55F700160B08 /* OxFordWorbFormTableViewCell.swift in Sources */,
 				5C0A19471FC58B8E00FF1B2F /* HTMLMapper.swift in Sources */,
 				6FC02D8D1FE02A260033F281 /* NSDictionaryExtensions.swift in Sources */,
 				6FC02D841FE02A260033F281 /* DateExtensions.swift in Sources */,
@@ -791,6 +802,7 @@
 				6FC02D791FE02A260033F281 /* BlockPinch.swift in Sources */,
 				6FC02D901FE02A260033F281 /* TimerExtensions.swift in Sources */,
 				6FC02D991FE02A260033F281 /* UIFontExtensions.swift in Sources */,
+				6FA57B6C1FEFBE7C00160B08 /* UITableView.swift in Sources */,
 				5CBFB82E1EE6B47200800FA9 /* TFHpple.m in Sources */,
 				6F0BA0951FDD45A5005B9801 /* Constant.swift in Sources */,
 				6F0BA08C1FDD2C57005B9801 /* String.swift in Sources */,

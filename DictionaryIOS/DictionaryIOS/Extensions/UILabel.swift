@@ -14,14 +14,24 @@ extension UILabel {
         self.textColor = .black
     }
     
+    func setSize14_black(){
+        self.font = AppFonts.descriptionFont
+        self.textColor = .black
+    }
+    
     func setSize12_black(){
         self.font = AppFonts.diffrentFont
         self.textColor = .black
     }
     
-    func setSize24_italic(){
+    func setSize12_gray(){
+        self.font = AppFonts.diffrentFont
+        self.textColor = .gray
+    }
+    
+    func setSize24_italic_gray(){
         self.font = AppFonts.wordClassFont
-        self.textColor = .black
+        self.textColor = .gray
     }
     
     static func size(font:UIFont, string: String) -> CGSize {

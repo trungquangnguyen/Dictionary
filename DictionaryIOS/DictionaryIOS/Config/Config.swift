@@ -17,6 +17,7 @@ struct AppIcons {
 //AppColor
 struct AppColors {
     static let mainColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+    static let redColor = UIColor(hexString: "BD5165")
     static let whiteColor   = UIColor.white
     static let grayColor    = UIColor.gray
 }

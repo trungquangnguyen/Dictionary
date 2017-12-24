@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-BoldItalic</string>
         </array>
     </customFonts>
@@ -28,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjz-3D-t6U" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="456"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKK-RG-1eA">
                                         <rect key="frame" x="279" y="10" width="86" height="86"/>
@@ -72,17 +73,61 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fme-ga-hir" userLabel="VerbForms">
+                                        <rect key="frame" x="0.0" y="156" width="375" height="300"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se8-w2-j7y">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="RVg-UE-FK1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Worb Forms" image="add">
+                                                    <color key="titleColor" red="0.27450980390000002" green="0.48627450979999998" blue="0.14117647059999999" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <state key="selected" image="substract"/>
+                                                <connections>
+                                                    <action selector="wordFormsAction:" destination="G1x-Ta-bla" eventType="touchUpInside" id="epD-Ak-sg8"/>
+                                                </connections>
+                                            </button>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-IR-AVx">
+                                                <rect key="frame" x="0.0" y="40" width="375" height="260"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="G1x-Ta-bla" id="mkR-Tx-BKd"/>
+                                                    <outlet property="delegate" destination="G1x-Ta-bla" id="kIr-8t-bwr"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.1084931775" blue="0.060677424440000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstItem="aJX-IR-AVx" firstAttribute="top" secondItem="Se8-w2-j7y" secondAttribute="bottom" id="19Y-uQ-Pif"/>
+                                            <constraint firstAttribute="trailing" secondItem="Se8-w2-j7y" secondAttribute="trailing" id="1n6-nk-4Ib"/>
+                                            <constraint firstAttribute="trailing" secondItem="aJX-IR-AVx" secondAttribute="trailing" id="6ha-r5-N5b"/>
+                                            <constraint firstItem="aJX-IR-AVx" firstAttribute="leading" secondItem="fme-ga-hir" secondAttribute="leading" id="E2t-xx-wlU"/>
+                                            <constraint firstAttribute="bottom" secondItem="aJX-IR-AVx" secondAttribute="bottom" id="ShB-Yw-If8"/>
+                                            <constraint firstAttribute="height" constant="300" id="Vs8-00-HLX"/>
+                                            <constraint firstItem="Se8-w2-j7y" firstAttribute="leading" secondItem="fme-ga-hir" secondAttribute="leading" id="nDs-tG-wpD"/>
+                                            <constraint firstItem="Se8-w2-j7y" firstAttribute="top" secondItem="fme-ga-hir" secondAttribute="top" id="sEc-NF-gsO"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WYC-79-hNu" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" constant="30" id="28u-za-UvK"/>
                                     <constraint firstAttribute="trailing" secondItem="xKK-RG-1eA" secondAttribute="trailing" constant="10" id="4LY-tH-sCA"/>
+                                    <constraint firstItem="fme-ga-hir" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" id="6NU-Ia-IFJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="fme-ga-hir" secondAttribute="trailing" id="9DZ-69-DUO"/>
                                     <constraint firstAttribute="trailing" secondItem="NBN-gy-r5o" secondAttribute="trailing" id="DwR-66-ngz"/>
                                     <constraint firstItem="NBN-gy-r5o" firstAttribute="top" secondItem="xKK-RG-1eA" secondAttribute="bottom" constant="10" id="EBb-iz-Md9"/>
                                     <constraint firstItem="NBN-gy-r5o" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" id="EvR-uY-D2v"/>
                                     <constraint firstItem="6ux-xn-6dq" firstAttribute="width" secondItem="xKK-RG-1eA" secondAttribute="width" id="GE0-L6-Itf"/>
+                                    <constraint firstAttribute="bottom" secondItem="fme-ga-hir" secondAttribute="bottom" id="Gf7-k8-lnz"/>
+                                    <constraint firstItem="fme-ga-hir" firstAttribute="top" secondItem="NBN-gy-r5o" secondAttribute="bottom" id="Nq1-n7-dm5"/>
                                     <constraint firstItem="xKK-RG-1eA" firstAttribute="top" secondItem="Zjz-3D-t6U" secondAttribute="top" constant="10" id="SAp-KJ-qDL"/>
                                     <constraint firstItem="6ux-xn-6dq" firstAttribute="centerY" secondItem="xKK-RG-1eA" secondAttribute="centerY" id="cMC-4A-9aq"/>
-                                    <constraint firstAttribute="bottom" secondItem="NBN-gy-r5o" secondAttribute="bottom" id="eZq-f6-oah"/>
                                     <constraint firstItem="6ux-xn-6dq" firstAttribute="height" secondItem="xKK-RG-1eA" secondAttribute="height" id="j7f-Y7-c44"/>
                                     <constraint firstItem="6ux-xn-6dq" firstAttribute="centerX" secondItem="xKK-RG-1eA" secondAttribute="centerX" id="mwS-Sz-pdM"/>
                                     <constraint firstItem="mpk-YJ-sVi" firstAttribute="leading" secondItem="Zjz-3D-t6U" secondAttribute="leading" constant="15" id="vJV-u1-4bZ"/>
@@ -100,11 +145,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonWorbForms" destination="Se8-w2-j7y" id="R5d-Ty-VFz"/>
                         <outlet property="collectionPronuciation" destination="NBN-gy-r5o" id="QVo-HH-2qp"/>
                         <outlet property="imageThumnail" destination="xKK-RG-1eA" id="4yQ-2J-tnQ"/>
                         <outlet property="labelKeyWord" destination="mpk-YJ-sVi" id="MYw-mf-pGB"/>
                         <outlet property="labelWordClass" destination="WYC-79-hNu" id="VYf-4g-LQp"/>
+                        <outlet property="tableViewWordForms" destination="aJX-IR-AVx" id="vkh-XO-vdj"/>
                         <outlet property="topView" destination="Zjz-3D-t6U" id="tDh-UZ-uPN"/>
+                        <outlet property="verbFormContrainsHeight" destination="Vs8-00-HLX" id="gC8-Tm-3u0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4F-Ja-bt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,4 +160,8 @@
             <point key="canvasLocation" x="-119.2" y="142.57871064467767"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add" width="21" height="21"/>
+        <image name="substract" width="21" height="21"/>
+    </resources>
 </document>

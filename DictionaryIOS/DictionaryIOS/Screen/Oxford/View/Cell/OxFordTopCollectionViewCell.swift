@@ -13,11 +13,13 @@ protocol OxFordTopCollectionViewCellDelegate {
 
 class OxFordTopCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var labelSpelling: UILabel!
+    @IBOutlet weak var buttonSpeaker: UIButton!
     
     var delegate: OxFordTopCollectionViewCellDelegate!
     var prounication: PronuncationViewModel!{
         didSet{
             labelSpelling.text = prounication.spelling
+            buttonSpeaker.isSelected = !prounication.isAmericanVoice
         }
     }
 

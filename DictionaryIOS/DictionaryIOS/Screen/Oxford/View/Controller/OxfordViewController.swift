@@ -16,7 +16,6 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
             guard isViewLoaded else {
                 return
             }
-            //viewModel.keyWord.bind = { [unowned self] in print($0) }
             setDataTopView()
         }
     }
@@ -24,6 +23,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTopViewUI()
+        configWordFormsViewUI()
     }
     
     /**************************************************************************/
@@ -48,11 +48,12 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     
     
     @IBAction func showFullImageAction(_ sender: Any) {
+        
     }
     
     private func configTopViewUI(){
         labelKeyWord.setKeyWordFont()
-        labelWordClass.setSize24_italic()
+        labelWordClass.setSize24_italic_gray()
         registerCell()
         setDataTopView()
     }
@@ -67,6 +68,31 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
         collectionPronuciation.reloadData()
     }
     /**************************************************************************/
+    
+    
+    /**************************************************************************/
+    // MARK: - Verb Forms
+    /**************************************************************************/
+    let verbFormContrainsHeightDefault: CGFloat = 40
+    @IBOutlet weak var buttonWorbForms: UIButton!
+    @IBOutlet weak var verbFormContrainsHeight: NSLayoutConstraint!
+    @IBOutlet weak var tableViewWordForms: UITableView!
+    
+    private var isShowWordForms = false{
+        didSet{
+            isShowWordForms ? (verbFormContrainsHeight.constant = 500) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
+        }
+    }
+    
+    private func configWordFormsViewUI() {
+        tableViewWordForms.registerCellByNibs(strings: [XibIdentify.Oxford.WorbFormTableViewCell])
+    }
+    
+    @IBAction func wordFormsAction(_ sender: Any) {
+        isShowWordForms = !isShowWordForms
+        buttonWorbForms.isSelected = isShowWordForms
+    }
+    /*************************---Verb Forms---*****************************/
 }
 
 /**************************************************************************/
@@ -78,14 +104,14 @@ extension OxfordViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: XibIdentify.Oxford.OxFordTopCollectionViewCell, for: indexPath) as! OxFordTopCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: XibIdentify.Oxford.TopCollectionViewCell, for: indexPath) as! OxFordTopCollectionViewCell
         cell.prounication = viewModel.pronunciations[indexPath.row]
         cell.delegate = self
         return cell
     }
     
     fileprivate func registerCell(){
-        collectionPronuciation.registerCells(identifies: [XibIdentify.Oxford.OxFordTopCollectionViewCell])
+        collectionPronuciation.registerCells(identifies: [XibIdentify.Oxford.TopCollectionViewCell])
     }
 }
 
@@ -119,3 +145,19 @@ extension OxfordViewController: OxFordTopCollectionViewCellDelegate {
     }
 }
 /*************************---OxFordTopCollectionViewCellDelegate---*****************************/
+
+/**************************************************************************/
+// MARK: - WorbForms TableView DataSource - Delegate
+/**************************************************************************/
+extension OxfordViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, for: indexPath) as! OxFordWorbFormTableViewCell
+        cell.selectionStyle = .none
+        return cell
+    }
+}
+/*************************---Private Method---*****************************/

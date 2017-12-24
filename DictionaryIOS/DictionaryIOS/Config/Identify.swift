@@ -17,6 +17,7 @@ struct XibIdentify {
     }
     
     struct Oxford {
-        static let OxFordTopCollectionViewCell = "OxFordTopCollectionViewCell"
+        static let TopCollectionViewCell = "OxFordTopCollectionViewCell"
+        static let WorbFormTableViewCell = "OxFordWorbFormTableViewCell"
     }
 }

@@ -45,6 +45,7 @@ extension WordViewModel {
 struct PronuncationViewModel {
     var spelling            : String = ""
     var pronounce           : String = ""
+    var isAmericanVoice      : Bool = true
 }
 
 extension PronuncationViewModel {
@@ -53,8 +54,11 @@ extension PronuncationViewModel {
         self.pronounce = pronuncation.pronounce
     }
     
-    private func formatSpelling(string: String) -> String{
+    private mutating func formatSpelling(string: String) -> String{
         var spelling = string.lowercased()
+        if spelling.contains("bre"){
+            self.isAmericanVoice = false
+        }
         spelling = spelling.replacingOccurrences(of: "name", with: "")
         spelling = spelling.replacingOccurrences(of: "bre", with: "")
         spelling = spelling.replacingOccurrences(of: "//", with: "/")
