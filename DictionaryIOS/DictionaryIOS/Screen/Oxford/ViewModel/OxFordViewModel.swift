@@ -65,6 +65,7 @@ extension PronuncationViewModel {
         return spelling
     }
     
+    //MARK: - PronuncationViewModel Static Func
     static func getPronuncationViewModels(pronunications: [OxFordWordPronuncation]) -> [PronuncationViewModel]{
         var array = [PronuncationViewModel]()
         for pronunication in pronunications {
@@ -77,6 +78,7 @@ extension PronuncationViewModel {
 
 struct VerbFormsViewModel {
     var example                     : String = ""
+    var exampleAtt                  : NSMutableAttributedString = NSMutableAttributedString()
     var englishSpelling             : String = ""
     var englishPronuncation         : String = ""
     var americanSpelling            : String = ""
@@ -86,6 +88,12 @@ struct VerbFormsViewModel {
 extension VerbFormsViewModel {
     init(wordForm: VerdForm){
         self.example = wordForm.example.trimmingCharacters(in: .whitespaces)
+        let childs = ["present simple",
+                      "past simple",
+                      "past participle",
+                      "-ing form"]
+        let fonts = [AppFonts.nameFontCell]
+        self.exampleAtt = self.example.mutableAttString(defaultFont: AppFonts.descriptionFont, chilsFont: fonts, chils: childs)
         self.englishSpelling = getSpelling(verbFormSpell: wordForm.prounnications.get(at: 0))
         self.englishPronuncation = getPronuncation(verbFormSpell: wordForm.prounnications.get(at: 0))
         self.americanSpelling = getSpelling(verbFormSpell: wordForm.prounnications.get(at: 1))
@@ -116,6 +124,7 @@ extension VerbFormsViewModel {
         return spelling
     }
     
+    //MARK: - VerbFormsViewModel Static Func
     static func getVerbFormsViewModels(verbForms: [VerdForm]) -> [VerbFormsViewModel]{
         var array = [VerbFormsViewModel]()
         for verbForm in verbForms {

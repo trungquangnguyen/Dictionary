@@ -85,12 +85,13 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
                 return
             }
             tableViewWordForms.reloadData()
+            tableViewVerbFormHeight = tableViewWordForms.contentSize.height
         }
     }
-    
+    private var tableViewVerbFormHeight: CGFloat = 0
     private var isShowWordForms = false{
         didSet{
-            isShowWordForms ? (verbFormContrainsHeight.constant = 500) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
+            isShowWordForms ? (verbFormContrainsHeight.constant = tableViewVerbFormHeight + tableViewVerbFormHeight) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
         }
     }
     
@@ -99,7 +100,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
         tableViewWordForms.tableFooterView = UIView()
         tableViewWordForms.rowHeight = UITableViewAutomaticDimension
         tableViewWordForms.estimatedRowHeight = 40
-        verbFormViewModels = viewModel.verbForms
+        verbFormViewModels = viewModel?.verbForms ?? [VerbFormsViewModel]()
     }
     
     @IBAction func wordFormsAction(_ sender: Any) {

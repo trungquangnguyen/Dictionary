@@ -17,7 +17,7 @@ class OxFordWorbFormTableViewCell: UITableViewCell {
     
     var verbForm: VerbFormsViewModel!{
         didSet{
-            labelExample.text = verbForm.example
+            labelExample.attributedText = verbForm.exampleAtt
             labelEnglishSpell.text = verbForm.englishSpelling
             labelAmericanSpell.text = verbForm.americanSpelling
             constraintWidthUsSpell.constant = UILabel.width(font: AppFonts.diffrentFont, string: verbForm.americanSpelling)
