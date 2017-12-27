@@ -91,7 +91,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     private var tableViewVerbFormHeight: CGFloat = 0
     private var isShowWordForms = false{
         didSet{
-            isShowWordForms ? (verbFormContrainsHeight.constant = tableViewVerbFormHeight + tableViewVerbFormHeight) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
+            isShowWordForms ? (verbFormContrainsHeight.constant = tableViewVerbFormHeight + verbFormContrainsHeightDefault) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
         }
     }
     
