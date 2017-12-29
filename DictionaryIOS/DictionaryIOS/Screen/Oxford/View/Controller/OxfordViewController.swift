@@ -70,22 +70,30 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     }
     /**************************************************************************/
     
-    
     /**************************************************************************/
     // MARK: - Verb Forms
     /**************************************************************************/
-    let verbFormContrainsHeightDefault: CGFloat = 40
+    let verbFormContrainsHeightDefault: CGFloat = 30
     @IBOutlet weak var buttonWorbForms: UIButton!
     @IBOutlet weak var verbFormContrainsHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewWordForms: UITableView!
+    var photosDataSource: VerbFormDataSource?
     
     fileprivate var verbFormViewModels = [VerbFormsViewModel](){
         didSet{
             guard isViewLoaded else {
                 return
             }
+            photosDataSource?.models = verbFormViewModels
             tableViewWordForms.reloadData()
-            tableViewVerbFormHeight = tableViewWordForms.contentSize.height
+            DispatchQueue.main.async {
+                if self.tableViewWordForms.contentSize.height != 0 {
+                    self.tableViewVerbFormHeight = self.tableViewWordForms.contentSize.height
+                    print(self.tableViewWordForms.contentSize.height)
+                } else {
+                    self.tableViewVerbFormHeight = 100
+                }
+            }
         }
     }
     private var tableViewVerbFormHeight: CGFloat = 0
@@ -94,12 +102,17 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
             isShowWordForms ? (verbFormContrainsHeight.constant = tableViewVerbFormHeight + verbFormContrainsHeightDefault) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
         }
     }
-    
     private func configWordFormsViewUI() {
         tableViewWordForms.registerCellByNibs(strings: [XibIdentify.Oxford.WorbFormTableViewCell])
         tableViewWordForms.tableFooterView = UIView()
         tableViewWordForms.rowHeight = UITableViewAutomaticDimension
-        tableViewWordForms.estimatedRowHeight = 40
+        tableViewWordForms.estimatedRowHeight = 27
+        photosDataSource = VerbFormDataSource(models: verbFormViewModels, cellIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, configureCellBlock: { (cell, item) in
+            if let theCell = cell as? OxFordWorbFormTableViewCell {
+                theCell.verbForm = self.verbFormViewModels.get(at: item.row)
+            }
+        })
+        tableViewWordForms.dataSource = photosDataSource
         verbFormViewModels = viewModel?.verbForms ?? [VerbFormsViewModel]()
     }
     
@@ -161,19 +174,3 @@ extension OxfordViewController: OxFordTopCollectionViewCellDelegate {
 }
 /*************************---OxFordTopCollectionViewCellDelegate---*****************************/
 
-/**************************************************************************/
-// MARK: - WorbForms TableView DataSource - Delegate
-/**************************************************************************/
-extension OxfordViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return verbFormViewModels.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, for: indexPath) as! OxFordWorbFormTableViewCell
-        cell.verbForm = verbFormViewModels[indexPath.row]
-        cell.selectionStyle = .none
-        return cell
-    }
-}
-/*************************---Private Method---*****************************/
