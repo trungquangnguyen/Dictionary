@@ -86,20 +86,19 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
             }
             photosDataSource?.models = verbFormViewModels
             tableViewWordForms.reloadData()
-            DispatchQueue.main.async {
-                if self.tableViewWordForms.contentSize.height != 0 {
-                    self.tableViewVerbFormHeight = self.tableViewWordForms.contentSize.height
-                    print(self.tableViewWordForms.contentSize.height)
-                } else {
-                    self.tableViewVerbFormHeight = 100
-                }
+            if verbFormViewModels.count != 0 {
+                tableViewVerbFormHeight = tableViewWordForms.contentSize.height + verbFormContrainsHeightDefault
+                verbFormContrainsHeight.constant = verbFormContrainsHeightDefault
+            } else {
+                tableViewVerbFormHeight = 0
+                verbFormContrainsHeight.constant = 0
             }
         }
     }
     private var tableViewVerbFormHeight: CGFloat = 0
     private var isShowWordForms = false{
         didSet{
-            isShowWordForms ? (verbFormContrainsHeight.constant = tableViewVerbFormHeight + verbFormContrainsHeightDefault) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
+            isShowWordForms ? (verbFormContrainsHeight.constant = tableViewVerbFormHeight) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
         }
     }
     private func configWordFormsViewUI() {
