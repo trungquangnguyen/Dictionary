@@ -106,7 +106,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
         tableViewWordForms.registerCellByNibs(strings: [XibIdentify.Oxford.WorbFormTableViewCell])
         tableViewWordForms.tableFooterView = UIView()
         tableViewWordForms.rowHeight = UITableViewAutomaticDimension
-        tableViewWordForms.estimatedRowHeight = 27
+        tableViewWordForms.estimatedRowHeight = 37
         photosDataSource = VerbFormDataSource(models: verbFormViewModels, cellIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, configureCellBlock: { (cell, item) in
             if let theCell = cell as? OxFordWorbFormTableViewCell {
                 theCell.verbForm = self.verbFormViewModels.get(at: item.row)
