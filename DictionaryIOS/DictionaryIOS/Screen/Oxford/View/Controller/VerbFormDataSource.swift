@@ -18,11 +18,14 @@ class VerbFormDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     var configureCellBlock: TableViewConfigureCellBlock
     var selectCellBlock: TableViewSelectCellBlock?
     
-    init(models:[VerbFormsViewModel]?, cellIdentifier: String, configureCellBlock: @escaping TableViewConfigureCellBlock, selectCellBlock: TableViewSelectCellBlock? = nil) {
+    init(tableView: UITableView, models:[VerbFormsViewModel]?, cellIdentifier: String, configureCellBlock: @escaping TableViewConfigureCellBlock, selectCellBlock: TableViewSelectCellBlock? = nil) {
         self.models =  models
         self.cellIdentifier = cellIdentifier
         self.configureCellBlock = configureCellBlock
         self.selectCellBlock = selectCellBlock
+        tableView.registerCellByNibs(strings: [XibIdentify.Oxford.WorbFormTableViewCell])
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = 35
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models?.count ?? 0

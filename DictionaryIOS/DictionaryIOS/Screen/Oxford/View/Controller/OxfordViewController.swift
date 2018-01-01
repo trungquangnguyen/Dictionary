@@ -87,7 +87,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
             photosDataSource?.models = verbFormViewModels
             tableViewWordForms.reloadData()
             if verbFormViewModels.count != 0 {
-                tableViewVerbFormHeight = tableViewWordForms.contentSize.height + verbFormContrainsHeightDefault
+                tableViewVerbFormHeight = CGFloat(verbFormViewModels.count) * tableViewWordForms.rowHeight + verbFormContrainsHeightDefault
                 verbFormContrainsHeight.constant = verbFormContrainsHeightDefault
             } else {
                 tableViewVerbFormHeight = 0
@@ -102,11 +102,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
         }
     }
     private func configWordFormsViewUI() {
-        tableViewWordForms.registerCellByNibs(strings: [XibIdentify.Oxford.WorbFormTableViewCell])
-        tableViewWordForms.tableFooterView = UIView()
-        tableViewWordForms.rowHeight = UITableViewAutomaticDimension
-        tableViewWordForms.estimatedRowHeight = 37
-        photosDataSource = VerbFormDataSource(models: verbFormViewModels, cellIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, configureCellBlock: { (cell, item) in
+        photosDataSource = VerbFormDataSource(tableView: tableViewWordForms, models: verbFormViewModels, cellIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, configureCellBlock: { (cell, item) in
             if let theCell = cell as? OxFordWorbFormTableViewCell {
                 theCell.verbForm = self.verbFormViewModels.get(at: item.row)
             }
