@@ -18,13 +18,15 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
             }
             setDataTopView()
             verbFormViewModels = viewModel.verbForms
+            desViewModels = viewModel.des
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTopViewUI()
-        configWordFormsViewUI()
+        configVerbFormsViewUI()
+        configDesViewUI()
     }
     
     /**************************************************************************/
@@ -77,15 +79,15 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     @IBOutlet weak var buttonWorbForms: UIButton!
     @IBOutlet weak var verbFormContrainsHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewWordForms: UITableView!
-    var photosDataSource: VerbFormDataSource?
+    var verbFormDataSource: VerbFormDataSource?
     
     fileprivate var verbFormViewModels = [VerbFormsViewModel](){
         didSet{
             guard isViewLoaded else {
                 return
             }
-            photosDataSource?.models = verbFormViewModels
-            tableViewWordForms.reloadData()
+            isShowWordForms = false
+            buttonWorbForms.isSelected = isShowWordForms
             if verbFormViewModels.count != 0 {
                 tableViewVerbFormHeight = CGFloat(verbFormViewModels.count) * tableViewWordForms.rowHeight + verbFormContrainsHeightDefault
                 verbFormContrainsHeight.constant = verbFormContrainsHeightDefault
@@ -101,21 +103,80 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
             isShowWordForms ? (verbFormContrainsHeight.constant = tableViewVerbFormHeight) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
         }
     }
-    private func configWordFormsViewUI() {
-        photosDataSource = VerbFormDataSource(tableView: tableViewWordForms, models: verbFormViewModels, cellIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, configureCellBlock: { (cell, item) in
+    private func configVerbFormsViewUI() {
+        verbFormDataSource = VerbFormDataSource(tableView: tableViewWordForms, models: verbFormViewModels, cellIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, configureCellBlock: { (cell, item) in
             if let theCell = cell as? OxFordWorbFormTableViewCell {
                 theCell.verbForm = self.verbFormViewModels.get(at: item.row)
             }
         })
-        tableViewWordForms.dataSource = photosDataSource
+        tableViewWordForms.dataSource = verbFormDataSource
         verbFormViewModels = viewModel?.verbForms ?? [VerbFormsViewModel]()
     }
-    
-    @IBAction func wordFormsAction(_ sender: Any) {
+    private func verbFormReloadData(){
+        verbFormDataSource?.models = verbFormViewModels
+        tableViewWordForms.reloadData()
+    }
+    @IBAction func verbFormsAction(_ sender: Any) {
         isShowWordForms = !isShowWordForms
         buttonWorbForms.isSelected = isShowWordForms
+        if isShowWordForms{
+            verbFormReloadData()
+        }
     }
     /*************************---Verb Forms---*****************************/
+    
+    /**************************************************************************/
+    // MARK: - Description
+    /**************************************************************************/
+    let desContrainsHeightDefault: CGFloat = 30
+    @IBOutlet weak var buttonDes: UIButton!
+    @IBOutlet weak var desContrainsHeight: NSLayoutConstraint!
+    @IBOutlet weak var tableViewDes: UITableView!
+    var desDataSource: OxDesDataSourceDelegate?
+    
+    fileprivate var desViewModels = [DescriptionViewModel](){
+        didSet{
+            guard isViewLoaded else {
+                return
+            }
+            isShowDes = false
+            buttonDes.isSelected = isShowDes
+            if verbFormViewModels.count != 0 {
+                tableViewDesHeight = tableViewDes.contentSize.height + verbFormContrainsHeightDefault
+                desContrainsHeight.constant = verbFormContrainsHeightDefault
+            } else {
+                tableViewDesHeight = 0
+                desContrainsHeight.constant = 0
+            }
+        }
+    }
+    private var tableViewDesHeight: CGFloat = 0
+    private var isShowDes = false{
+        didSet{
+            isShowDes ? (desContrainsHeight.constant = tableViewVerbFormHeight) : (desContrainsHeight.constant = verbFormContrainsHeightDefault)
+        }
+    }
+    private func configDesViewUI() {
+        desDataSource = OxDesDataSourceDelegate(tableView: tableViewDes, models: verbFormViewModels, cellIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, configureCellBlock: { (cell, item) in
+            if let theCell = cell as? OxFordWorbFormTableViewCell {
+                theCell.verbForm = self.verbFormViewModels.get(at: item.row)
+            }
+        })
+        tableViewDes.dataSource = desDataSource
+        verbFormViewModels = viewModel?.verbForms ?? [VerbFormsViewModel]()
+    }
+    private func desReloadData(){
+        desDataSource?.models = verbFormViewModels
+        tableViewDes.reloadData()
+    }
+    @IBAction func desAction(_ sender: Any) {
+        isShowDes = !isShowDes
+        buttonDes.isSelected = isShowDes
+        if isShowDes {
+            desReloadData()
+        }
+    }
+    /*************************---Descriptions---*****************************/
 }
 
 /**************************************************************************/

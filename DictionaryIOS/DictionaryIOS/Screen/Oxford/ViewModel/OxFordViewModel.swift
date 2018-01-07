@@ -14,13 +14,12 @@ struct WordViewModel {
     var fullSizeUrl         : String = ""
     var verbForms           : [VerbFormsViewModel] = [VerbFormsViewModel]()
     var extraExamples       : [String] = [String]()
-    var des                 : [OxFordWordDes] = [OxFordWordDes]()
+    var des                 : [DescriptionViewModel] = [DescriptionViewModel]()
     var idioms              : [String] = [String]()
     var phrsalVerbs         : [OxFordWordPhrasal] = [OxFordWordPhrasal]()
     var nearbyWords         : [OxFordWordNearBy]  = [OxFordWordNearBy]()
     var isLiked             : Bool = false
 }
-
 extension WordViewModel {
     init(word: OxFordWord) {
         self.keyWord = word.keyWord
@@ -30,13 +29,12 @@ extension WordViewModel {
         self.fullSizeUrl = word.fullSizeUrl
         self.verbForms = VerbFormsViewModel.getVerbFormsViewModels(verbForms: word.verbForms)
         self.extraExamples = word.extraExamples
-        self.des = word.des
+        self.des = DescriptionViewModel.getDesViewModels(des: word.des)
         self.idioms = word.idioms
         self.phrsalVerbs = word.phrsalVerbs
         self.nearbyWords = word.nearbyWords
         self.isLiked = word.isLiked
     }
-    
     private func getWordClass(strings: [String]) -> String {
         return strings.joined(separator: ", ")
     }
@@ -47,13 +45,11 @@ struct PronuncationViewModel {
     var pronounce           : String = ""
     var isAmericanVoice      : Bool = true
 }
-
 extension PronuncationViewModel {
     init(pronuncation: OxFordWordPronuncation) {
         self.spelling = formatSpelling(string: pronuncation.spelling)
         self.pronounce = pronuncation.pronounce
     }
-    
     private mutating func formatSpelling(string: String) -> String{
         var spelling = string.lowercased()
         if spelling.contains("bre"){
@@ -64,7 +60,6 @@ extension PronuncationViewModel {
         spelling = spelling.replacingOccurrences(of: "//", with: "/")
         return spelling
     }
-    
     //MARK: - PronuncationViewModel Static Func
     static func getPronuncationViewModels(pronunications: [OxFordWordPronuncation]) -> [PronuncationViewModel]{
         var array = [PronuncationViewModel]()
@@ -84,7 +79,6 @@ struct VerbFormsViewModel {
     var americanSpelling            : String = ""
     var americanPronuncation        : String = ""
 }
-
 extension VerbFormsViewModel {
     init(wordForm: VerdForm){
         self.example = wordForm.example.trimmingCharacters(in: .whitespaces)
@@ -99,21 +93,18 @@ extension VerbFormsViewModel {
         self.americanSpelling = getSpelling(verbFormSpell: wordForm.prounnications.get(at: 1))
         self.americanPronuncation = getPronuncation(verbFormSpell: wordForm.prounnications.get(at: 1))
     }
-    
     private func getSpelling(verbFormSpell: VerdFormSpell?) -> String{
         guard verbFormSpell != nil else {
             return ""
         }
         return formatSpelling(string: verbFormSpell!.spelling)
     }
-    
     private func getPronuncation(verbFormSpell: VerdFormSpell?) -> String{
         guard verbFormSpell != nil else {
             return ""
         }
         return verbFormSpell!.pronounceURL
     }
-    
     private func formatSpelling(string: String) -> String{
         var spelling = string.lowercased()
         if spelling.contains("bre"){
@@ -123,7 +114,6 @@ extension VerbFormsViewModel {
         spelling = spelling.replacingOccurrences(of: "//", with: "/")
         return spelling
     }
-    
     //MARK: - VerbFormsViewModel Static Func
     static func getVerbFormsViewModels(verbForms: [VerdForm]) -> [VerbFormsViewModel]{
         var array = [VerbFormsViewModel]()
@@ -134,3 +124,38 @@ extension VerbFormsViewModel {
         return array
     }
 }
+
+enum OxDesType {
+    case ShortCut
+    case Description
+    case Example
+}
+struct DescriptionViewModel {
+    var text            : String = ""
+    var type            : OxDesType = .Example
+}
+extension DescriptionViewModel {
+    static func getDesViewModels(des: [OxFordWordDes]) -> [DescriptionViewModel]{
+        var array = [DescriptionViewModel]()
+        for ob in des {
+            if ob.shortCut != "" {
+                let viewModel = DescriptionViewModel(text: ob.shortCut, type: .ShortCut)
+                array.append(viewModel)
+            }
+            for ob1 in ob.longDes {
+                if ob1.desc != "" {
+                    let viewModel = DescriptionViewModel(text: ob1.desc, type: .Description)
+                    array.append(viewModel)
+                }
+                for ob2 in ob1.examples {
+                    if ob2 != "" {
+                        let viewModel = DescriptionViewModel(text: ob2, type: .Example)
+                        array.append(viewModel)
+                    }
+                }
+            }
+        }
+        return array
+    }
+}
+
