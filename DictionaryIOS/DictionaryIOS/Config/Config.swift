@@ -33,7 +33,7 @@ struct AppFonts {
     static let titleFont                = UIFont(name: "HelveticaNeue-Medium", size: 16) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let nameFontCell             = UIFont(name: "HelveticaNeue-Medium", size: 14) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let descriptionFont          = UIFont(name: "HelveticaNeue", size: 14) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
-    static let descriptionLargeFont          = UIFont(name: "HelveticaNeue", size: 16) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+    static let descriptionLargeFont          = UIFont(name: "HelveticaNeue-Italic", size: 16) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let diffrentFont             = UIFont(name: "HelveticaNeue", size: 12) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let diffrentMinFont             = UIFont(name: "HelveticaNeue", size: 11) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     static let commentFont              = UIFont(name: "HelveticaNeue", size: 14) ?? UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)

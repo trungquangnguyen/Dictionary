@@ -47,6 +47,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     @IBOutlet weak var labelWordClass: UILabel!
     @IBOutlet weak var collectionPronuciation: UICollectionView!
     @IBOutlet weak var imageThumnail: UIImageView!
+    @IBOutlet weak var wordClassView: UIView!
     let collectionCellPronunicationHeight: CGFloat = 50
     
     
@@ -56,7 +57,8 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     
     private func configTopViewUI(){
         labelKeyWord.setKeyWordFont()
-        labelWordClass.setSize24_italic_gray()
+        labelWordClass.setSize16_Italic()
+        labelWordClass.textColor = .white
         registerCell()
         setDataTopView()
     }
@@ -75,7 +77,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     /**************************************************************************/
     // MARK: - Verb Forms
     /**************************************************************************/
-    let verbFormContrainsHeightDefault: CGFloat = 30
+    let heightDefaultPlusView: CGFloat = 30
     @IBOutlet weak var buttonWorbForms: UIButton!
     @IBOutlet weak var verbFormContrainsHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewWordForms: UITableView!
@@ -89,8 +91,8 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
             isShowWordForms = false
             buttonWorbForms.isSelected = isShowWordForms
             if verbFormViewModels.count != 0 {
-                tableViewVerbFormHeight = CGFloat(verbFormViewModels.count) * tableViewWordForms.rowHeight + verbFormContrainsHeightDefault
-                verbFormContrainsHeight.constant = verbFormContrainsHeightDefault
+                tableViewVerbFormHeight = CGFloat(verbFormViewModels.count) * tableViewWordForms.rowHeight + heightDefaultPlusView
+                verbFormContrainsHeight.constant = heightDefaultPlusView
             } else {
                 tableViewVerbFormHeight = 0
                 verbFormContrainsHeight.constant = 0
@@ -100,7 +102,7 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     private var tableViewVerbFormHeight: CGFloat = 0
     private var isShowWordForms = false{
         didSet{
-            isShowWordForms ? (verbFormContrainsHeight.constant = tableViewVerbFormHeight) : (verbFormContrainsHeight.constant = verbFormContrainsHeightDefault)
+            isShowWordForms ? (verbFormContrainsHeight.constant = tableViewVerbFormHeight) : (verbFormContrainsHeight.constant = heightDefaultPlusView)
         }
     }
     private func configVerbFormsViewUI() {
@@ -141,9 +143,9 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
             }
             isShowDes = false
             buttonDes.isSelected = isShowDes
-            if verbFormViewModels.count != 0 {
-                tableViewDesHeight = tableViewDes.contentSize.height + verbFormContrainsHeightDefault
-                desContrainsHeight.constant = verbFormContrainsHeightDefault
+            if desViewModels.count != 0 {
+                tableViewDesHeight = CGFloat(desViewModels.count) * tableViewDes.estimatedRowHeight + heightDefaultPlusView
+                desContrainsHeight.constant = heightDefaultPlusView
             } else {
                 tableViewDesHeight = 0
                 desContrainsHeight.constant = 0
@@ -153,20 +155,20 @@ class OxfordViewController: UIViewController, IndicatorInfoProvider {
     private var tableViewDesHeight: CGFloat = 0
     private var isShowDes = false{
         didSet{
-            isShowDes ? (desContrainsHeight.constant = tableViewVerbFormHeight) : (desContrainsHeight.constant = verbFormContrainsHeightDefault)
+            isShowDes ? (desContrainsHeight.constant = tableViewDesHeight) : (desContrainsHeight.constant = heightDefaultPlusView)
         }
     }
     private func configDesViewUI() {
-        desDataSource = OxDesDataSourceDelegate(tableView: tableViewDes, models: verbFormViewModels, cellIdentifier: XibIdentify.Oxford.WorbFormTableViewCell, configureCellBlock: { (cell, item) in
-            if let theCell = cell as? OxFordWorbFormTableViewCell {
-                theCell.verbForm = self.verbFormViewModels.get(at: item.row)
+        desDataSource = OxDesDataSourceDelegate(tableView: tableViewDes, models: desViewModels, cellIdentifier: XibIdentify.Oxford.DesTableViewCell, configureCellBlock: { (cell, item) in
+            if let theCell = cell as? OxDescriptionTableViewCell {
+                theCell.model = self.desViewModels.get(at: item.row)
             }
         })
         tableViewDes.dataSource = desDataSource
-        verbFormViewModels = viewModel?.verbForms ?? [VerbFormsViewModel]()
+        desViewModels = viewModel?.des ?? [DescriptionViewModel]()
     }
     private func desReloadData(){
-        desDataSource?.models = verbFormViewModels
+        desDataSource?.models = desViewModels
         tableViewDes.reloadData()
     }
     @IBAction func desAction(_ sender: Any) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OxDesDataSourceDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
+class VerbFormDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     typealias TableViewConfigureCellBlock = (_ cell:UITableViewCell, _ indexPath: IndexPath) -> Void
     typealias TableViewSelectCellBlock = ((_ indexPath: IndexPath) -> Void)?
@@ -23,10 +23,14 @@ class OxDesDataSourceDelegate: NSObject, UITableViewDataSource, UITableViewDeleg
         self.cellIdentifier = cellIdentifier
         self.configureCellBlock = configureCellBlock
         self.selectCellBlock = selectCellBlock
-        tableView.registerCellByNibs(strings: [XibIdentify.Oxford.WorbFormTableViewCell])
+        tableView.registerCellByNibs(strings: [cellIdentifier])
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 35
     }
+    
+    /**************************************************************************/
+    // MARK: - TableViewDatasource
+    /**************************************************************************/
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models?.count ?? 0
     }
@@ -38,9 +42,16 @@ class OxDesDataSourceDelegate: NSObject, UITableViewDataSource, UITableViewDeleg
         }
         return cell
     }
+    /*************************---TableViewDatasource---*************************/
+    
+    /**************************************************************************/
+    // MARK: - TableViewDelegate
+    /**************************************************************************/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectCellBlock != nil {
             self.selectCellBlock!!(indexPath)
         }
     }
+    /*************************---TableViewDelegate---**************************/
 }
+
